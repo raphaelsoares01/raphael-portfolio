@@ -5,11 +5,14 @@ import Skills from "@/components/Skills";
 
 export default function Home() {
   return (
-    <main>
+    <>
       <Navbar />
-      <Hero />
-      <About />
-      <Skills />
-    </main>
+    
+      <main>
+        <Hero />
+        <About />
+        <Skills />
+      </main>
+    </>
   );
 }
