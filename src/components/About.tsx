@@ -1,3 +1,7 @@
+"use client";
+
+import { motion } from "motion/react";
+
 export default function About() {
   return (
     <section className="flex min-h-screen items-center justify-center bg-[#eeeeee] px-6 py-24 sm:px-10">
@@ -8,7 +12,13 @@ export default function About() {
           className="mx-auto w-full max-w-[18rem] rounded-[2rem] object-cover shadow-[12px_12px_0_#d7d7d7] sm:max-w-[22rem]"
         />
 
-        <div className="max-w-2xl">
+        <motion.div
+          className="max-w-2xl"
+          initial={{ opacity: 0, y: 48 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.25 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+        >
           <p className="mb-3 text-sm font-semibold uppercase tracking-[0.3em] text-slate-500">
             About me
           </p>
@@ -32,7 +42,7 @@ export default function About() {
               while building a strong foundation in software engineering.
             </p>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
