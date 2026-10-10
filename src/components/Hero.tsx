@@ -1,7 +1,7 @@
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center">
-      <div className="group relative">
+    <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
+      <div className="group relative z-10">
 
       {/* < */}
       <img

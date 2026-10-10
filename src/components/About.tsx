@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 
 export default function About() {
   return (
-    <section className="flex min-h-screen items-center justify-center bg-[#eeeeee] px-6 py-24 sm:px-10">
+    <section className="flex min-h-screen items-center justify-center px-6 py-24 sm:px-10">
       <div className="grid w-full max-w-6xl items-center gap-12 md:grid-cols-[minmax(220px,0.8fr)_1.2fr] md:gap-20">
         <img
           src="/images/profile.png"
@@ -26,7 +26,7 @@ export default function About() {
             Hey!
           </h1>
 
-          <div className="space-y-5 text-base leading-8 text-slate-600 sm:text-lg">
+          <div className="space-y-5 text-base leading-8 text-slate-700 sm:text-lg">
             <p>
               I&apos;m Raphael Soares Casado — a Computer Engineering student and
               developer with a strong focus on building practical, well-structured

@@ -1,12 +1,15 @@
 export default function Skills() {
   return (
     <section className="flex min-h-screen flex-col items-center justify-center px-6 py-20 sm:px-10">
-      <h1 className="mb-12 w-full max-w-[1600px] text-left text-5xl font-bold sm:text-6xl">
+      <h1 className="mb-12 w-full max-w-[1200px] text-left text-5xl font-bold sm:text-6xl">
         Skills
         <span className="mt-3 block h-1 w-20 rounded-full bg-pink-500" />
       </h1>
 
-      <div className="grid w-full max-w-[1600px] grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
+      <div className="w-full max-w-[1200px] space-y-16">
+        <section className="grid gap-8 lg:grid-cols-[13rem_minmax(0,1fr)] lg:gap-10">
+          <h2 className="mb-0 text-left text-4xl font-bold uppercase lg:pt-2">Frontend</h2>
+          <div className="grid grid-cols-1 justify-items-center gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {/* HTML */}
         <article className="group relative flex flex-col items-center transition duration-300 hover:-translate-y-1">
           <div className="relative w-full max-w-[18rem] overflow-hidden rounded-[1.35rem]">
@@ -104,6 +107,29 @@ export default function Skills() {
           </div>
         </article>
 
+        {/* Next.js */}
+        <article className="group relative flex flex-col items-center transition duration-300 hover:-translate-y-1">
+          <div className="relative w-full max-w-[18rem] overflow-hidden rounded-[1.35rem]">
+            <img
+              src="/images/liquid-container.png"
+              alt=""
+              aria-hidden="true"
+              className="relative block h-auto w-full opacity-80"
+            />
+            <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
+              <img src="/images/skills/nextjs-logo-liquid-glass.png" alt="Logo de Next.js" className="size-14 object-contain transition-transform duration-300 group-hover:scale-110 sm:size-16" />
+              <p className="text-lg font-semibold tracking-wide text-slate-700">Next.js</p>
+            </div>
+          </div>
+        </article>
+
+          </div>
+        </section>
+
+        <section className="grid gap-8 lg:grid-cols-[13rem_minmax(0,1fr)] lg:gap-10">
+          <h2 className="mb-0 text-left text-4xl font-bold uppercase lg:pt-2">Backend</h2>
+          <div className="grid grid-cols-1 justify-items-center gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+
         {/* Java */}
         <article className="group relative flex flex-col items-center transition duration-300 hover:-translate-y-1">
           <div className="relative w-full max-w-[18rem] overflow-hidden rounded-[1.35rem]">
@@ -200,21 +226,12 @@ export default function Skills() {
           </div>
         </article>
 
-        {/* Next.js */}
-        <article className="group relative flex flex-col items-center transition duration-300 hover:-translate-y-1">
-          <div className="relative w-full max-w-[18rem] overflow-hidden rounded-[1.35rem]">
-            <img
-              src="/images/liquid-container.png"
-              alt=""
-              aria-hidden="true"
-              className="relative block h-auto w-full opacity-80"
-            />
-            <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
-              <img src="/images/skills/nextjs-logo-liquid-glass.png" alt="Logo de Next.js" className="size-14 object-contain transition-transform duration-300 group-hover:scale-110 sm:size-16" />
-              <p className="text-lg font-semibold tracking-wide text-slate-700">Next.js</p>
-            </div>
           </div>
-        </article>
+        </section>
+
+        <section className="grid gap-8 lg:grid-cols-[13rem_minmax(0,1fr)] lg:gap-10">
+          <h2 className="mb-0 text-left text-4xl font-bold uppercase lg:pt-2">Database</h2>
+          <div className="grid grid-cols-1 justify-items-center gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
 
         {/* SQL */}
         <article className="group relative flex flex-col items-center transition duration-300 hover:-translate-y-1">
@@ -248,6 +265,13 @@ export default function Skills() {
           </div>
         </article>
 
+          </div>
+        </section>
+
+        <section className="grid gap-8 lg:grid-cols-[13rem_minmax(0,1fr)] lg:gap-10">
+          <h2 className="mb-0 text-left text-4xl font-bold uppercase lg:pt-2">Tools</h2>
+          <div className="grid grid-cols-1 justify-items-center gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+
 
         {/* GitHub */}
         <article className="group relative flex flex-col items-center transition duration-300 hover:-translate-y-1">
@@ -264,6 +288,9 @@ export default function Skills() {
             </div>
           </div>
         </article>
+
+          </div>
+        </section>
       </div>
     </section>
   );
