@@ -15,14 +15,20 @@ export default function Projects() {
     const selectedProject = projects[activeProject];
 
     return (
-        <section className="flex min-h-screen flex-col items-center justify-center px-6 py-24 sm:px-10">
-            <div className="w-full max-w-6xl">
-                <div className="mb-12">
-                    <h1 className="font-space text-5xl font-semibold tracking-tight text-slate-900 sm:text-6xl">
+        <section id="projects" className="flex min-h-screen flex-col items-center justify-center px-6 py-24 sm:px-10">
+            <div className="w-full max-w-[1200px]">
+                <motion.div
+                    className="mb-12"
+                    initial={{ opacity: 0, y: 32 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: false, amount: 0.35 }}
+                    transition={{ duration: 0.65, ease: "easeOut" }}
+                >
+                    <h1 className="font-space text-5xl font-bold tracking-tight text-slate-900 sm:text-6xl">
                         Projects
                     </h1>
                     <span className="mt-3 block h-1 w-20 rounded-full bg-primary" />
-                </div>
+                </motion.div>
 
                 <div className="grid items-start gap-12 lg:min-h-[calc(100vh-6rem)] lg:grid-cols-[minmax(0,1fr)_minmax(280px,460px)] lg:gap-20">
                     <div>
@@ -88,7 +94,13 @@ export default function Projects() {
                         })}
                     </div>
 
-                    <div className="h-fit lg:sticky lg:top-16 lg:-mt-16 lg:self-start">
+                    <motion.div
+                        className="h-fit lg:sticky lg:top-16 lg:-mt-16 lg:self-start"
+                        initial={{ opacity: 0, y: 40 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: false, amount: 0.15 }}
+                        transition={{ duration: 0.75, delay: 0.12, ease: "easeOut" }}
+                    >
                         <div
                             className="relative mx-auto aspect-[0.73] w-full max-w-[460px]"
                             data-selected-project={selectedProject.name}
@@ -103,7 +115,7 @@ export default function Projects() {
                                 {/* Project preview content will be added here later. */}
                             </div>
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
             </div>
         </section>

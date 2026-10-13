@@ -1,12 +1,28 @@
+"use client";
+
+import { motion } from "motion/react";
+
 export default function Skills() {
   return (
-    <section className="flex min-h-screen flex-col items-center justify-center px-6 py-20 sm:px-10">
-      <h1 className="mb-12 w-full max-w-[1200px] text-left text-5xl font-bold sm:text-6xl">
+    <section id="skills" className="flex min-h-screen flex-col items-center justify-center px-6 py-20 sm:px-10">
+      <motion.h1
+        className="font-space mb-12 w-full max-w-[1200px] text-left text-5xl font-bold tracking-tight text-slate-900 sm:text-6xl"
+        initial={{ opacity: 0, y: 32 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false, amount: 0.35 }}
+        transition={{ duration: 0.65, ease: "easeOut" }}
+      >
         Skills
         <span className="mt-3 block h-1 w-20 rounded-full bg-pink-500" />
-      </h1>
+      </motion.h1>
 
-      <div className="w-full max-w-[1200px] space-y-16">
+      <motion.div
+        className="w-full max-w-[1200px] space-y-16"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false, amount: 0.15 }}
+        transition={{ duration: 0.75, delay: 0.12, ease: "easeOut" }}
+      >
         <section className="grid gap-8 lg:grid-cols-[13rem_minmax(0,1fr)] lg:gap-10">
           <h2 className="mb-0 text-left text-4xl font-bold uppercase lg:pt-2">Frontend</h2>
           <div className="grid grid-cols-1 justify-items-center gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
@@ -291,7 +307,7 @@ export default function Skills() {
 
           </div>
         </section>
-      </div>
+      </motion.div>
     </section>
   );
 }

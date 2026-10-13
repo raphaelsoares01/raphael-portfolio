@@ -4,8 +4,22 @@ import { motion } from "motion/react";
 
 export default function About() {
   return (
-    <section className="flex min-h-screen items-center justify-center px-6 py-24 sm:px-10">
+    <section id="about" className="flex min-h-screen items-center justify-center px-6 py-24 sm:px-10">
       <div className="grid w-full max-w-6xl items-center gap-12 md:grid-cols-[minmax(220px,0.8fr)_1.2fr] md:gap-20">
+        <div className="relative mx-auto aspect-[1085/1452] w-full max-w-[18rem] sm:max-w-[22rem]">
+          <img
+            src="/images/profile.png"
+            alt="Portrait of Raphael Soares Casado"
+            className="absolute inset-x-[7%] bottom-[5%] top-[7%] z-10 h-[88%] w-[86%] rounded-[2rem] object-cover"
+          />
+          <img
+            src="/images/large-liquid-container.png"
+            alt=""
+            aria-hidden="true"
+            className="absolute inset-0 z-0 h-full w-full object-fill opacity-80"
+          />
+        </div>
+
         <motion.div
           className="max-w-2xl"
           initial={{ opacity: 0, y: 48 }}
@@ -36,13 +50,22 @@ export default function About() {
               while building a strong foundation in software engineering.
             </p>
           </div>
-        </motion.div>
 
-        <img
-          src="/images/profile.png"
-          alt="Portrait of Raphael Soares Casado"
-          className="mx-auto w-full max-w-[18rem] rounded-[2rem] object-cover shadow-[12px_12px_0_#d7d7d7] sm:max-w-[22rem]"
-        />
+          <a
+            href="file:///C:/Users/Professor/Desktop/CURRICULO_RAPHAEL_SOARES_CASADO.pdf"
+            target="_blank"
+            rel="noreferrer"
+            download
+            aria-label="Download resume PDF"
+            className="group mt-8 inline-flex items-center gap-3 text-base font-bold uppercase tracking-[0.16em] text-primary transition-colors hover:text-slate-900"
+          >
+            Resume
+            <span
+              aria-hidden="true"
+              className="size-5 bg-primary transition-[background-color,transform] duration-300 group-hover:translate-y-0.5 group-hover:bg-slate-900 [mask-image:url('/images/download-icon.png')] [mask-position:center] [mask-repeat:no-repeat] [mask-size:contain]"
+            />
+          </a>
+        </motion.div>
       </div>
     </section>
   );
