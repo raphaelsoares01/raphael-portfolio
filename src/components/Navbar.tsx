@@ -1,39 +1,59 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useSitePreferences } from "@/app/SitePreferences";
 
 const navItems = [
-  { label: "Home", target: "home" },
-  { label: "About", target: "about" },
-  { label: "Skills", target: "skills" },
-  { label: "Projects", target: "projects" },
-  { label: "Credentials", target: "credentials" },
+  { en: "Home", pt: "Início", target: "home" },
+  { en: "About", pt: "Sobre", target: "about" },
+  { en: "Skills", pt: "Habilidades", target: "skills" },
+  { en: "Projects", pt: "Projetos", target: "projects" },
+  { en: "Credentials", pt: "Certificados", target: "credentials" },
 ];
 
 export default function Navbar() {
   const [activeSection, setActiveSection] = useState("home");
+  const { language } = useSitePreferences();
 
   useEffect(() => {
     const sections = navItems
       .map(({ target }) => document.getElementById(target))
       .filter((section): section is HTMLElement => section !== null);
+    let animationFrame: number | null = null;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visibleSection = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((first, second) => second.intersectionRatio - first.intersectionRatio)[0];
-
-        if (visibleSection) {
-          setActiveSection(visibleSection.target.id);
+    const updateActiveSection = () => {
+      animationFrame = null;
+      const referenceLine = Math.min(window.innerHeight * 0.35, 280);
+      const currentSection = sections.reduce((activeSection, section) => {
+        if (section.getBoundingClientRect().top <= referenceLine) {
+          return section;
         }
-      },
-      { rootMargin: "-35% 0px -55%", threshold: [0.1, 0.25, 0.5] },
-    );
 
-    sections.forEach((section) => observer.observe(section));
+        return activeSection;
+      }, sections[0]);
 
-    return () => observer.disconnect();
+      if (currentSection) {
+        setActiveSection(currentSection.id);
+      }
+    };
+
+    const handleScroll = () => {
+      if (animationFrame === null) {
+        animationFrame = window.requestAnimationFrame(updateActiveSection);
+      }
+    };
+
+    updateActiveSection();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+      if (animationFrame !== null) {
+        window.cancelAnimationFrame(animationFrame);
+      }
+    };
   }, []);
 
   return (
@@ -48,7 +68,7 @@ export default function Navbar() {
         </a>
 
         <div className="flex max-w-[calc(100vw-6rem)] items-center gap-1 overflow-x-auto">
-          {navItems.map(({ label, target }) => {
+          {navItems.map(({ en, pt, target }) => {
             const isActive = activeSection === target;
 
             return (
@@ -71,7 +91,7 @@ export default function Navbar() {
                     : "text-slate-600 hover:bg-white/80 hover:text-slate-900"
                 }`}
               >
-                {label}
+                {language === "pt" ? pt : en}
               </a>
             );
           })}

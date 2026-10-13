@@ -1,8 +1,10 @@
 "use client";
 
 import { motion } from "motion/react";
+import { useSitePreferences } from "@/app/SitePreferences";
 
 export default function Skills() {
+  const { language } = useSitePreferences();
   return (
     <section id="skills" className="flex min-h-screen flex-col items-center justify-center px-6 py-20 sm:px-10">
       <motion.h1
@@ -12,7 +14,7 @@ export default function Skills() {
         viewport={{ once: false, amount: 0.35 }}
         transition={{ duration: 0.65, ease: "easeOut" }}
       >
-        Skills
+        {language === "pt" ? "Habilidades" : "Skills"}
         <span className="mt-3 block h-1 w-20 rounded-full bg-pink-500" />
       </motion.h1>
 
@@ -246,7 +248,7 @@ export default function Skills() {
         </section>
 
         <section className="grid gap-8 lg:grid-cols-[13rem_minmax(0,1fr)] lg:gap-10">
-          <h2 className="mb-0 text-left text-4xl font-bold uppercase lg:pt-2">Database</h2>
+          <h2 className="mb-0 text-left text-4xl font-bold uppercase lg:pt-2">{language === "pt" ? "Banco de dados" : "Database"}</h2>
           <div className="grid grid-cols-1 justify-items-center gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
 
         {/* SQL */}
@@ -285,7 +287,7 @@ export default function Skills() {
         </section>
 
         <section className="grid gap-8 lg:grid-cols-[13rem_minmax(0,1fr)] lg:gap-10">
-          <h2 className="mb-0 text-left text-4xl font-bold uppercase lg:pt-2">Tools</h2>
+          <h2 className="mb-0 text-left text-4xl font-bold uppercase lg:pt-2">{language === "pt" ? "Outros" : "Tools"}</h2>
           <div className="grid grid-cols-1 justify-items-center gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
 
 

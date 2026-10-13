@@ -1,8 +1,11 @@
 "use client";
 
 import { motion } from "motion/react";
+import { useSitePreferences } from "@/app/SitePreferences";
 
 export default function Certificates() {
+  const { language } = useSitePreferences();
+  const isPortuguese = language === "pt";
   return (
     <section id="credentials" className="flex min-h-screen flex-col items-center justify-center px-6 py-20 sm:px-10">
       <motion.h1
@@ -12,7 +15,7 @@ export default function Certificates() {
         viewport={{ once: false, amount: 0.35 }}
         transition={{ duration: 0.65, ease: "easeOut" }}
       >
-        Credentials
+        {isPortuguese ? "Certificados" : "Credentials"}
         <span className="mt-3 block h-1 w-20 rounded-full bg-yellow-500" />
       </motion.h1>
 
@@ -26,7 +29,7 @@ export default function Certificates() {
         {/* Responsive Web Design */}
         <div
           tabIndex={0}
-          aria-label="Responsive Web Design certificate"
+          aria-label={isPortuguese ? "Certificado de Responsive Web Design" : "Responsive Web Design certificate"}
           className="group relative w-full overflow-hidden rounded-[1.35rem] [perspective:1200px] focus:outline-none focus-visible:ring-2 focus-visible:ring-primary lg:w-[calc(100%+8rem)]"
         >
           <div className="relative aspect-[1578/1008] w-full transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] group-focus:[transform:rotateY(180deg)]">
@@ -53,7 +56,7 @@ export default function Certificates() {
               />
               <div className="absolute inset-[10%] flex flex-col justify-between rounded-[1.35rem] border border-primary/40 bg-white/15 p-6 text-slate-900 backdrop-blur-[2px] sm:p-8">
                 <div>
-                  <p className="mb-4 text-xs font-bold uppercase tracking-[0.25em] text-primary">Certificate</p>
+                  <p className="mb-4 text-xs font-bold uppercase tracking-[0.25em] text-primary">{isPortuguese ? "Certificado" : "Certificate"}</p>
                   <h2 className="font-space max-w-[18rem] text-2xl font-bold tracking-tight sm:text-3xl">
                     Responsive Web Design
                   </h2>
@@ -80,7 +83,7 @@ export default function Certificates() {
                     rel="noreferrer"
                     className="font-bold uppercase tracking-[0.2em] text-primary transition-colors hover:text-slate-900"
                   >
-                    View certificate
+                    {isPortuguese ? "Ver certificado" : "View certificate"}
                   </a>
                 </div>
               </div>

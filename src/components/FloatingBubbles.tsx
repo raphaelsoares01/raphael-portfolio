@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useSitePreferences } from "@/app/SitePreferences";
 
 type BubbleState = {
   id: number;
@@ -51,6 +52,7 @@ function createBubbles(width: number, height: number): BubbleState[] {
 }
 
 export default function FloatingBubbles() {
+  const { bubblesEnabled } = useSitePreferences();
   const fieldRef = useRef<HTMLDivElement>(null);
   const bubblesRef = useRef<BubbleState[]>([]);
   const dragRef = useRef<DragState | null>(null);
@@ -63,6 +65,8 @@ export default function FloatingBubbles() {
     if (!field) {
       return;
     }
+
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     const measureField = () => {
       const width = field.clientWidth;
@@ -181,7 +185,9 @@ export default function FloatingBubbles() {
     measureField();
     const resizeObserver = new ResizeObserver(measureField);
     resizeObserver.observe(field);
-    animationFrameRef.current = window.requestAnimationFrame(animate);
+    if (bubblesEnabled && !prefersReducedMotion) {
+      animationFrameRef.current = window.requestAnimationFrame(animate);
+    }
 
     return () => {
       resizeObserver.disconnect();
@@ -189,7 +195,7 @@ export default function FloatingBubbles() {
         window.cancelAnimationFrame(animationFrameRef.current);
       }
     };
-  }, []);
+  }, [bubblesEnabled]);
 
   const getPointerPosition = (event: React.PointerEvent) => {
     const field = fieldRef.current;
@@ -215,7 +221,7 @@ export default function FloatingBubbles() {
       offsetY: pointer.y - bubble.y,
       lastX: pointer.x,
       lastY: pointer.y,
-      lastTime: performance.now(),
+      lastTime: event.timeStamp,
     };
   };
 
@@ -233,7 +239,7 @@ export default function FloatingBubbles() {
     }
 
     const pointer = getPointerPosition(event);
-    const now = performance.now();
+    const now = event.timeStamp;
     const elapsed = Math.max(now - drag.lastTime, 8);
     const width = field.clientWidth;
     const height = field.clientHeight;
@@ -255,7 +261,7 @@ export default function FloatingBubbles() {
   };
 
   return (
-    <div ref={fieldRef} className="pointer-events-none absolute inset-0 z-20 overflow-hidden">
+    <div ref={fieldRef} className={`pointer-events-none absolute inset-0 z-20 overflow-hidden transition-[opacity,filter] duration-700 ease-out motion-reduce:transition-none ${bubblesEnabled ? "opacity-100" : "opacity-0 blur-sm"}`}>
       {bubbles.map((bubble) => (
         <img
           key={bubble.id}

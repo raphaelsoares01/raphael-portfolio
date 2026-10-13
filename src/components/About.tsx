@@ -1,8 +1,11 @@
 "use client";
 
 import { motion } from "motion/react";
+import { useSitePreferences } from "@/app/SitePreferences";
 
 export default function About() {
+  const { language } = useSitePreferences();
+  const isPortuguese = language === "pt";
   return (
     <section id="about" className="flex min-h-screen items-center justify-center px-6 py-24 sm:px-10">
       <div className="grid w-full max-w-6xl items-center gap-12 md:grid-cols-[minmax(220px,0.8fr)_1.2fr] md:gap-20">
@@ -28,7 +31,7 @@ export default function About() {
           transition={{ duration: 0.7, ease: "easeOut" }}
         >
           <p className="mb-3 text-sm font-semibold uppercase tracking-[0.3em] text-slate-500">
-            About me
+            {isPortuguese ? "Sobre mim" : "About me"}
           </p>
           <h1 className="mb-8 text-5xl font-bold tracking-tight text-slate-900 sm:text-6xl">
             Hey!
@@ -36,18 +39,15 @@ export default function About() {
 
           <div className="space-y-5 text-base leading-8 text-slate-700 sm:text-lg">
             <p>
-              I&apos;m Raphael Soares Casado — a Computer Engineering student and
-              developer with a strong focus on building practical, well-structured
-              solutions. I enjoy understanding how things work under the hood,
-              solving problems through code, and constantly pushing myself to learn
-              new technologies.
+              {isPortuguese
+                ? "Sou Raphael Soares Casado, estudante de Engenharia da Computação e desenvolvedor focado em criar soluções práticas e bem estruturadas. Gosto de entender como as coisas funcionam, resolver problemas com código e aprender novas tecnologias."
+                : "I'm Raphael Soares Casado — a Computer Engineering student and developer with a strong focus on building practical, well-structured solutions. I enjoy understanding how things work under the hood, solving problems through code, and constantly pushing myself to learn new technologies."}
             </p>
 
             <p>
-              Driven by curiosity and self-learning, I thrive on challenging
-              problems and turning ideas into reliable, thoughtful software.
-              I&apos;m currently focused on growing as a full-stack developer
-              while building a strong foundation in software engineering.
+              {isPortuguese
+                ? "Movido por curiosidade e aprendizado autodidata, gosto de enfrentar problemas desafiadores e transformar ideias em software confiável. Atualmente, foco em crescer como desenvolvedor full-stack e fortalecer minha base em engenharia de software."
+                : "Driven by curiosity and self-learning, I thrive on challenging problems and turning ideas into reliable, thoughtful software. I'm currently focused on growing as a full-stack developer while building a strong foundation in software engineering."}
             </p>
           </div>
 
@@ -59,7 +59,7 @@ export default function About() {
             aria-label="Download resume PDF"
             className="group mt-8 inline-flex items-center gap-3 text-base font-bold uppercase tracking-[0.16em] text-primary transition-colors hover:text-slate-900"
           >
-            Resume
+            {isPortuguese ? "Currículo" : "Resume"}
             <span
               aria-hidden="true"
               className="size-5 bg-primary transition-[background-color,transform] duration-300 group-hover:translate-y-0.5 group-hover:bg-slate-900 [mask-image:url('/images/download-icon.png')] [mask-position:center] [mask-repeat:no-repeat] [mask-size:contain]"

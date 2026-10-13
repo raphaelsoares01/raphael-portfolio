@@ -5,11 +5,11 @@ import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
 import Certificates from "@/components/Certificates";
 import FloatingBubbles from "@/components/FloatingBubbles";
-import { Certificate } from "crypto";
+import { SitePreferencesProvider } from "./SitePreferences";
 
 export default function Home() {
   return (
-    <>
+    <SitePreferencesProvider>
       <Navbar />
     
       <main className="relative">
@@ -22,6 +22,6 @@ export default function Home() {
           <Certificates />
         </div>
       </main>
-    </>
+    </SitePreferencesProvider>
   );
 }

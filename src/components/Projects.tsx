@@ -2,6 +2,7 @@
 
 import { motion } from "motion/react";
 import { useState } from "react";
+import { useSitePreferences } from "@/app/SitePreferences";
 
 const projects = [
     { name: "PillReminder", technologies: ["Flutter", "Dart", "Firebase"] },
@@ -12,6 +13,7 @@ const projects = [
 
 export default function Projects() {
     const [activeProject, setActiveProject] = useState(0);
+    const { language } = useSitePreferences();
     const selectedProject = projects[activeProject];
 
     return (
@@ -25,7 +27,7 @@ export default function Projects() {
                     transition={{ duration: 0.65, ease: "easeOut" }}
                 >
                     <h1 className="font-space text-5xl font-bold tracking-tight text-slate-900 sm:text-6xl">
-                        Projects
+                        {language === "pt" ? "Projetos" : "Projects"}
                     </h1>
                     <span className="mt-3 block h-1 w-20 rounded-full bg-primary" />
                 </motion.div>
@@ -49,7 +51,7 @@ export default function Projects() {
                                         type="button"
                                         className="group w-full cursor-pointer text-left"
                                         onFocus={() => setActiveProject(index)}
-                                        aria-label={`Selecionar projeto ${project.name}`}
+                                        aria-label={language === "pt" ? `Selecionar projeto ${project.name}` : `Select project ${project.name}`}
                                     >
                                         <div className="mb-3 flex items-center gap-4">
                                             <span className="font-space text-sm font-semibold text-slate-400">
