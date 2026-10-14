@@ -52,18 +52,16 @@ export default function About() {
           </div>
 
           <a
-            href="file:///C:/Users/Professor/Desktop/CURRICULO_RAPHAEL_SOARES_CASADO.pdf"
+            href="/documents/CURRICULO_RAPHAEL_SOARES_CASADO.pdf"
             target="_blank"
             rel="noreferrer"
-            download
-            aria-label="Download resume PDF"
+            aria-label="Open resume PDF"
             className="group mt-8 inline-flex items-center gap-3 text-base font-bold uppercase tracking-[0.16em] text-primary transition-colors hover:text-slate-900"
           >
             {isPortuguese ? "Currículo" : "Resume"}
-            <span
-              aria-hidden="true"
-              className="size-5 bg-primary transition-[background-color,transform] duration-300 group-hover:translate-y-0.5 group-hover:bg-slate-900 [mask-image:url('/images/download-icon.png')] [mask-position:center] [mask-repeat:no-repeat] [mask-size:contain]"
-            />
+            <span aria-hidden="true" className="text-2xl leading-none text-primary transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-slate-900">
+              ↗
+            </span>
           </a>
         </motion.div>
       </div>

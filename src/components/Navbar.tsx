@@ -9,6 +9,7 @@ const navItems = [
   { en: "Skills", pt: "Habilidades", target: "skills" },
   { en: "Projects", pt: "Projetos", target: "projects" },
   { en: "Credentials", pt: "Certificados", target: "credentials" },
+  { en: "Contact", pt: "Contato", target: "contact" },
 ];
 
 export default function Navbar() {

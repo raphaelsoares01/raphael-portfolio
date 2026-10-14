@@ -6,6 +6,12 @@ import { useSitePreferences } from "@/app/SitePreferences";
 export default function Certificates() {
   const { language } = useSitePreferences();
   const isPortuguese = language === "pt";
+  const certificateUrl = "https://www.freecodecamp.org/certification/raphael_soares/responsive-web-design-v9";
+
+  const openCertificate = () => {
+    window.open(certificateUrl, "_blank", "noopener,noreferrer");
+  };
+
   return (
     <section id="credentials" className="flex min-h-screen flex-col items-center justify-center px-6 py-20 sm:px-10">
       <motion.h1
@@ -29,8 +35,16 @@ export default function Certificates() {
         {/* Responsive Web Design */}
         <div
           tabIndex={0}
+          role="link"
           aria-label={isPortuguese ? "Certificado de Responsive Web Design" : "Responsive Web Design certificate"}
-          className="group relative w-full overflow-hidden rounded-[1.35rem] [perspective:1200px] focus:outline-none focus-visible:ring-2 focus-visible:ring-primary lg:w-[calc(100%+8rem)]"
+          onClick={openCertificate}
+          onKeyDown={(event) => {
+            if (event.key === "Enter" || event.key === " ") {
+              event.preventDefault();
+              openCertificate();
+            }
+          }}
+          className="group relative w-full cursor-pointer overflow-hidden rounded-[1.35rem] [perspective:1200px] focus:outline-none focus-visible:ring-2 focus-visible:ring-primary lg:w-[calc(100%+8rem)]"
         >
           <div className="relative aspect-[1578/1008] w-full transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] group-focus:[transform:rotateY(180deg)]">
             <div className="absolute inset-0 overflow-hidden rounded-[1.35rem] [backface-visibility:hidden]">
@@ -78,9 +92,10 @@ export default function Certificates() {
                 <div className="flex items-end justify-between gap-4 text-sm">
                   <span className="text-slate-500">freeCodeCamp</span>
                   <a
-                    href="https://www.freecodecamp.org/certification/raphael_soares/responsive-web-design-v9"
+                    href={certificateUrl}
                     target="_blank"
                     rel="noreferrer"
+                    onClick={(event) => event.stopPropagation()}
                     className="font-bold uppercase tracking-[0.2em] text-primary transition-colors hover:text-slate-900"
                   >
                     {isPortuguese ? "Ver certificado" : "View certificate"}
