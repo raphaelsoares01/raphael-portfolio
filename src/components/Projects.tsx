@@ -5,10 +5,26 @@ import { useState } from "react";
 import { useSitePreferences } from "@/app/SitePreferences";
 
 const projects = [
-    { name: "PillReminder", technologies: ["Flutter", "Dart", "Firebase"] },
-    { name: "Project 02", technologies: ["React", "TypeScript", "Tailwind CSS"] },
-    { name: "Project 03", technologies: ["Next.js", "Node.js", "PostgreSQL"] },
-    { name: "Project 04", technologies: ["HTML", "CSS", "JavaScript"] }, 
+    {
+        name: "PillReminder",
+        image: "/images/pillreminder-project-image.png",
+        technologies: ["Flutter", "Dart", "Firebase"],
+    },
+    {
+        name: "PillReminder Website",
+        image: "/images/pillreminder-website-project-image.png",
+        technologies: ["React", "TypeScript", "Tailwind CSS", "Node.js", "Next.js"],
+    },
+    {
+        name: "Project 03",
+        image: "",
+        technologies: ["Next.js", "Node.js", "PostgreSQL"],
+    },
+    {
+        name: "Project 04",
+        image: "",
+        technologies: ["HTML", "CSS", "JavaScript"],
+    },
 ];
 
 export default function Projects() {
@@ -107,15 +123,25 @@ export default function Projects() {
                             className="relative mx-auto aspect-[0.73] w-full max-w-[460px]"
                             data-selected-project={selectedProject.name}
                         >
+                            <div className="absolute inset-[3%_6%_4%] overflow-hidden rounded-[8%]">
+                                {selectedProject.image && (
+                                    <motion.img
+                                        key={selectedProject.name}
+                                        src={selectedProject.image}
+                                        alt={selectedProject.name}
+                                        className="size-full object-cover"
+                                        initial={{ opacity: 0, scale: 1.04, filter: "blur(10px)" }}
+                                        animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+                                        transition={{ duration: 0.65, ease: "easeOut" }}
+                                    />
+                                )}
+                            </div>
                             <img
-                                src="/images/large-liquid-container.png"
+                                src="/images/large-liquid-container-frame.png"
                                 alt=""
                                 aria-hidden="true"
-                                className="absolute inset-0 size-full object-contain"
+                                className="absolute inset-0 size-full object-fill"
                             />
-                            <div className="absolute inset-[12%] flex items-center justify-center text-center">
-                                {/* Project preview content will be added here later. */}
-                            </div>
                         </div>
                     </motion.div>
                 </div>
