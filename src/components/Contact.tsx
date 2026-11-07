@@ -56,8 +56,8 @@ export default function Contact() {
 					</h2>
 					<p className="mt-7 max-w-sm text-base leading-7 text-slate-600">
 						{isPortuguese
-							? "Tem um projeto em mente? Vou adorar ouvir você."
-							: "Have a project in mind? I would love to hear from you."}
+							? "Tem um projeto em mente? Podemos conversar sobre isso."
+							: "Have a project in mind? We can talk about it."}
 					</p>
 				</motion.div>
 

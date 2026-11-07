@@ -73,22 +73,22 @@ export default function Hero() {
 
       {/* Keep the English title as the fixed layout reference for the images. */}
       <div aria-hidden="true" className="invisible text-center">
-        <h1 className="font-space text-6xl md:text-[130px] font-semibold">
+        <h1 className="font-space text-4xl font-semibold sm:text-6xl md:text-[130px]">
           SOFTWARE
         </h1>
 
-        <h1 className="font-space text-6xl md:text-[130px] font-semibold">
+        <h1 className="font-space text-4xl font-semibold sm:text-6xl md:text-[130px]">
           ENGINEER
         </h1>
       </div>
 
       {/* Título */}
       <div className="absolute left-1/2 top-0 z-10 w-screen -translate-x-1/2 text-center">
-        <h1 className="font-space whitespace-nowrap text-6xl md:text-[130px] font-semibold">
+        <h1 className="font-space whitespace-nowrap text-4xl font-semibold sm:text-6xl md:text-[130px]">
           {isPortuguese ? "ENGENHEIRO DE" : "SOFTWARE"}
         </h1>
 
-        <h1 className="font-space whitespace-nowrap text-6xl md:text-[130px] font-semibold">
+        <h1 className="font-space whitespace-nowrap text-4xl font-semibold sm:text-6xl md:text-[130px]">
           {isPortuguese ? "SOFTWARE" : "ENGINEER"}
         </h1>
       </div>
