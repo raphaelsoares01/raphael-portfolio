@@ -15,16 +15,6 @@ const projects = [
         image: "/images/pillreminder-website-project-image.png",
         technologies: ["React", "TypeScript", "Tailwind CSS", "Node.js", "Next.js"],
     },
-    {
-        name: "Project 03",
-        image: "",
-        technologies: ["Next.js", "Node.js", "PostgreSQL"],
-    },
-    {
-        name: "Project 04",
-        image: "",
-        technologies: ["HTML", "CSS", "JavaScript"],
-    },
 ];
 
 export default function Projects() {
