@@ -39,7 +39,7 @@ export default function Projects() {
                 </motion.div>
 
                 <div className="grid items-start gap-12 lg:min-h-[calc(100vh-6rem)] lg:grid-cols-[minmax(0,1fr)_minmax(280px,460px)] lg:gap-20">
-                    <div>
+                    <div className="lg:order-first">
                         {projects.map((project, index) => {
                             const isActive = activeProject === index;
 
@@ -64,12 +64,12 @@ export default function Projects() {
                                                 _0{index + 1}
                                             </span>
                                             <div className="relative overflow-hidden">
-                                                <h2 className="font-space text-4xl font-bold tracking-tight text-slate-400 transition-colors duration-300 sm:text-6xl">
+                                                <h2 className="font-space text-3xl font-bold tracking-tight text-slate-400 transition-colors duration-300 sm:text-6xl">
                                                     {project.name}
                                                 </h2>
                                                 <motion.h2
                                                     aria-hidden="true"
-                                                    className="absolute inset-0 font-space text-4xl font-bold tracking-tight text-primary sm:text-6xl"
+                                                    className="absolute inset-0 font-space text-3xl font-bold tracking-tight text-primary sm:text-6xl"
                                                     initial={{ clipPath: "inset(0 100% 0 0)" }}
                                                     animate={{
                                                         clipPath: isActive
@@ -103,14 +103,14 @@ export default function Projects() {
                     </div>
 
                     <motion.div
-                        className="h-fit lg:sticky lg:top-16 lg:-mt-16 lg:self-start"
+                        className="order-first h-fit lg:order-last lg:sticky lg:top-16 lg:-mt-16 lg:self-start"
                         initial={{ opacity: 0, y: 40 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: false, amount: 0.15 }}
                         transition={{ duration: 0.75, delay: 0.12, ease: "easeOut" }}
                     >
                         <div
-                            className="relative mx-auto aspect-[0.73] w-full max-w-[460px]"
+                            className="relative mx-auto aspect-[0.73] w-full max-w-[19rem] sm:max-w-[460px]"
                             data-selected-project={selectedProject.name}
                         >
                             <div className="absolute inset-[3%_6%_4%] overflow-hidden rounded-[8%]">

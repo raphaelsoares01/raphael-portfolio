@@ -61,34 +61,34 @@ export default function Hero() {
       <img
         src="/images/left-arrow.png"
         alt=""
-        className="absolute left-[-8vw] top-1/2 h-auto w-[80vw] max-w-[1050px] -translate-y-1/2 scale-[1.5] transition-transform duration-500 ease-out group-hover:-translate-x-30"
+        className="absolute left-[-12vw] top-1/2 h-auto w-[58vw] max-w-[1050px] -translate-y-1/2 transition-transform duration-500 ease-out group-hover:-translate-x-30 sm:left-[-8vw] sm:w-[80vw] sm:scale-[1.5]"
       />
 
       {/* > */}
       <img
         src="/images/right-arrow.png"
         alt=""
-        className="absolute right-[-8vw] top-1/2 h-auto w-[80vw] max-w-[1050px] -translate-y-1/2 scale-[1.5] transition-transform duration-500 ease-out group-hover:translate-x-30"
+        className="absolute right-[-12vw] top-1/2 h-auto w-[58vw] max-w-[1050px] -translate-y-1/2 transition-transform duration-500 ease-out group-hover:translate-x-30 sm:right-[-8vw] sm:w-[80vw] sm:scale-[1.5]"
       />
 
       {/* Keep the English title as the fixed layout reference for the images. */}
       <div aria-hidden="true" className="invisible text-center">
-        <h1 className="font-space text-4xl font-semibold sm:text-6xl md:text-[130px]">
+        <h1 className="font-space text-3xl font-semibold sm:text-6xl md:text-[130px]">
           SOFTWARE
         </h1>
 
-        <h1 className="font-space text-4xl font-semibold sm:text-6xl md:text-[130px]">
+        <h1 className="font-space text-3xl font-semibold sm:text-6xl md:text-[130px]">
           ENGINEER
         </h1>
       </div>
 
       {/* Título */}
       <div className="absolute left-1/2 top-0 z-10 w-screen -translate-x-1/2 text-center">
-        <h1 className="font-space whitespace-nowrap text-4xl font-semibold sm:text-6xl md:text-[130px]">
+        <h1 className="font-space whitespace-nowrap text-3xl font-semibold sm:text-6xl md:text-[130px]">
           {isPortuguese ? "ENGENHEIRO DE" : "SOFTWARE"}
         </h1>
 
-        <h1 className="font-space whitespace-nowrap text-4xl font-semibold sm:text-6xl md:text-[130px]">
+        <h1 className="font-space whitespace-nowrap text-3xl font-semibold sm:text-6xl md:text-[130px]">
           {isPortuguese ? "SOFTWARE" : "ENGINEER"}
         </h1>
       </div>

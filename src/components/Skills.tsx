@@ -27,7 +27,7 @@ export default function Skills() {
       >
         <section className="grid gap-8 lg:grid-cols-[13rem_minmax(0,1fr)] lg:gap-10">
           <h2 className="mb-0 text-left text-4xl font-bold uppercase lg:pt-2">Frontend</h2>
-          <div className="grid grid-cols-1 justify-items-center gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          <div className="grid grid-cols-2 justify-items-center gap-3 sm:grid-cols-2 sm:gap-6 md:grid-cols-3 lg:grid-cols-4">
         {/* HTML */}
         <article className="group relative flex flex-col items-center transition duration-300 hover:-translate-y-1">
           <div className="relative w-full max-w-[18rem] overflow-hidden rounded-[1.35rem]">
@@ -39,8 +39,8 @@ export default function Skills() {
               
             />
             <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
-              <img src="/images/skills/html-logo-liquid-glass.png" alt="Logo de HTML" className="size-14 object-contain transition-transform duration-300 group-hover:scale-110 sm:size-16" />
-              <p className="text-lg font-semibold tracking-wide text-slate-700">HTML</p>
+              <img src="/images/skills/html-logo-liquid-glass.png" alt="Logo de HTML" className="size-11 object-contain transition-transform duration-300 group-hover:scale-110 sm:size-16" />
+              <p className="text-sm font-semibold tracking-wide text-slate-700 sm:text-lg">HTML</p>
             </div>
           </div>
         </article>
@@ -55,8 +55,8 @@ export default function Skills() {
               className="relative block h-auto w-full opacity-80"
             />
             <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
-              <img src="/images/skills/css-logo-liquid-glass.png" alt="Logo de CSS" className="size-14 object-contain transition-transform duration-300 group-hover:scale-110 sm:size-16" />
-              <p className="text-lg font-semibold tracking-wide text-slate-700">CSS</p>
+              <img src="/images/skills/css-logo-liquid-glass.png" alt="Logo de CSS" className="size-11 object-contain transition-transform duration-300 group-hover:scale-110 sm:size-16" />
+              <p className="text-sm font-semibold tracking-wide text-slate-700 sm:text-lg">CSS</p>
             </div>
           </div>
         </article>
@@ -71,8 +71,8 @@ export default function Skills() {
               className="relative block h-auto w-full opacity-80"
             />
             <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
-              <img src="/images/skills/javascript-logo-liquid-glass.png" alt="Logo de JavaScript" className="size-14 object-contain transition-transform duration-300 group-hover:scale-110 sm:size-16" />
-              <p className="text-lg font-semibold tracking-wide text-slate-700">JavaScript</p>
+              <img src="/images/skills/javascript-logo-liquid-glass.png" alt="Logo de JavaScript" className="size-11 object-contain transition-transform duration-300 group-hover:scale-110 sm:size-16" />
+              <p className="text-sm font-semibold tracking-wide text-slate-700 sm:text-lg">JavaScript</p>
             </div>
           </div>
         </article>
@@ -87,8 +87,8 @@ export default function Skills() {
               className="relative block h-auto w-full opacity-80"
             />
             <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
-              <img src="/images/skills/typescript-logo-liquid-glass.png" alt="Logo de TypeScript" className="size-14 object-contain transition-transform duration-300 group-hover:scale-110 sm:size-16" />
-              <p className="text-lg font-semibold tracking-wide text-slate-700">TypeScript</p>
+              <img src="/images/skills/typescript-logo-liquid-glass.png" alt="Logo de TypeScript" className="size-11 object-contain transition-transform duration-300 group-hover:scale-110 sm:size-16" />
+              <p className="text-sm font-semibold tracking-wide text-slate-700 sm:text-lg">TypeScript</p>
             </div>
           </div>
         </article>
@@ -103,8 +103,8 @@ export default function Skills() {
               className="relative block h-auto w-full opacity-80"
             />
             <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
-              <img src="/images/skills/react-logo-liquid-glass.png" alt="Logo de React" className="size-14 object-contain transition-transform duration-300 group-hover:scale-110 sm:size-16" />
-              <p className="text-lg font-semibold tracking-wide text-slate-700">React</p>
+              <img src="/images/skills/react-logo-liquid-glass.png" alt="Logo de React" className="size-11 object-contain transition-transform duration-300 group-hover:scale-110 sm:size-16" />
+              <p className="text-sm font-semibold tracking-wide text-slate-700 sm:text-lg">React</p>
             </div>
           </div>
         </article>
@@ -119,8 +119,8 @@ export default function Skills() {
               className="relative block h-auto w-full opacity-80"
             />
             <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
-              <img src="/images/skills/tailwind-logo-liquid-glass.png" alt="Logo de Tailwind CSS" className="size-14 object-contain transition-transform duration-300 group-hover:scale-110 sm:size-16" />
-              <p className="text-lg font-semibold tracking-wide text-slate-700">Tailwind CSS</p>
+              <img src="/images/skills/tailwind-logo-liquid-glass.png" alt="Logo de Tailwind CSS" className="size-11 object-contain transition-transform duration-300 group-hover:scale-110 sm:size-16" />
+              <p className="text-sm font-semibold tracking-wide text-slate-700 sm:text-lg">Tailwind CSS</p>
             </div>
           </div>
         </article>
@@ -135,8 +135,8 @@ export default function Skills() {
               className="relative block h-auto w-full opacity-80"
             />
             <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
-              <img src="/images/skills/nextjs-logo-liquid-glass.png" alt="Logo de Next.js" className="size-14 object-contain transition-transform duration-300 group-hover:scale-110 sm:size-16" />
-              <p className="text-lg font-semibold tracking-wide text-slate-700">Next.js</p>
+              <img src="/images/skills/nextjs-logo-liquid-glass.png" alt="Logo de Next.js" className="size-11 object-contain transition-transform duration-300 group-hover:scale-110 sm:size-16" />
+              <p className="text-sm font-semibold tracking-wide text-slate-700 sm:text-lg">Next.js</p>
             </div>
           </div>
         </article>
@@ -146,7 +146,7 @@ export default function Skills() {
 
         <section className="grid gap-8 lg:grid-cols-[13rem_minmax(0,1fr)] lg:gap-10">
           <h2 className="mb-0 text-left text-4xl font-bold uppercase lg:pt-2">Backend</h2>
-          <div className="grid grid-cols-1 justify-items-center gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          <div className="grid grid-cols-2 justify-items-center gap-3 sm:grid-cols-2 sm:gap-6 md:grid-cols-3 lg:grid-cols-4">
 
         {/* Java */}
         <article className="group relative flex flex-col items-center transition duration-300 hover:-translate-y-1">
@@ -158,8 +158,8 @@ export default function Skills() {
               className="relative block h-auto w-full opacity-80"
             />
             <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
-              <img src="/images/skills/java-logo-liquid-glass.png" alt="Logo de Java" className="size-14 object-contain transition-transform duration-300 group-hover:scale-110 sm:size-16" />
-              <p className="text-lg font-semibold tracking-wide text-slate-700">Java</p>
+              <img src="/images/skills/java-logo-liquid-glass.png" alt="Logo de Java" className="size-11 object-contain transition-transform duration-300 group-hover:scale-110 sm:size-16" />
+              <p className="text-sm font-semibold tracking-wide text-slate-700 sm:text-lg">Java</p>
             </div>
           </div>
         </article>
@@ -174,8 +174,8 @@ export default function Skills() {
               className="relative block h-auto w-full opacity-80"
             />
             <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
-              <img src="/images/skills/python-logo-liquid-glass.png" alt="Logo de Python" className="size-14 object-contain transition-transform duration-300 group-hover:scale-110 sm:size-16" />
-              <p className="text-lg font-semibold tracking-wide text-slate-700">Python</p>
+              <img src="/images/skills/python-logo-liquid-glass.png" alt="Logo de Python" className="size-11 object-contain transition-transform duration-300 group-hover:scale-110 sm:size-16" />
+              <p className="text-sm font-semibold tracking-wide text-slate-700 sm:text-lg">Python</p>
             </div>
           </div>
         </article>
@@ -190,8 +190,8 @@ export default function Skills() {
               className="relative block h-auto w-full opacity-80"
             />
             <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
-              <img src="/images/skills/csharp-logo-liquid-glass.png" alt="Logo de C#" className="size-14 object-contain transition-transform duration-300 group-hover:scale-110 sm:size-16" />
-              <p className="text-lg font-semibold tracking-wide text-slate-700">C#</p>
+              <img src="/images/skills/csharp-logo-liquid-glass.png" alt="Logo de C#" className="size-11 object-contain transition-transform duration-300 group-hover:scale-110 sm:size-16" />
+              <p className="text-sm font-semibold tracking-wide text-slate-700 sm:text-lg">C#</p>
             </div>
           </div>
         </article>
@@ -206,8 +206,8 @@ export default function Skills() {
               className="relative block h-auto w-full opacity-80"
             />
             <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
-              <img src="/images/skills/cpp-logo-liquid-glass.png" alt="Logo de C++" className="size-14 object-contain transition-transform duration-300 group-hover:scale-110 sm:size-16" />
-              <p className="text-lg font-semibold tracking-wide text-slate-700">C++</p>
+              <img src="/images/skills/cpp-logo-liquid-glass.png" alt="Logo de C++" className="size-11 object-contain transition-transform duration-300 group-hover:scale-110 sm:size-16" />
+              <p className="text-sm font-semibold tracking-wide text-slate-700 sm:text-lg">C++</p>
             </div>
           </div>
         </article>
@@ -222,8 +222,8 @@ export default function Skills() {
               className="relative block h-auto w-full opacity-80"
             />
             <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
-              <img src="/images/skills/dart-logo-liquid-glass.png" alt="Logo de Dart" className="size-14 object-contain transition-transform duration-300 group-hover:scale-110 sm:size-16" />
-              <p className="text-lg font-semibold tracking-wide text-slate-700">Dart</p>
+              <img src="/images/skills/dart-logo-liquid-glass.png" alt="Logo de Dart" className="size-11 object-contain transition-transform duration-300 group-hover:scale-110 sm:size-16" />
+              <p className="text-sm font-semibold tracking-wide text-slate-700 sm:text-lg">Dart</p>
             </div>
           </div>
         </article>
@@ -238,8 +238,8 @@ export default function Skills() {
               className="relative block h-auto w-full opacity-80"
             />
             <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
-              <img src="/images/skills/nodejs-logo-liquid-glass.png" alt="Logo de Node.js" className="size-14 object-contain transition-transform duration-300 group-hover:scale-110 sm:size-16" />
-              <p className="text-lg font-semibold tracking-wide text-slate-700">Node.js</p>
+              <img src="/images/skills/nodejs-logo-liquid-glass.png" alt="Logo de Node.js" className="size-11 object-contain transition-transform duration-300 group-hover:scale-110 sm:size-16" />
+              <p className="text-sm font-semibold tracking-wide text-slate-700 sm:text-lg">Node.js</p>
             </div>
           </div>
         </article>
@@ -249,7 +249,7 @@ export default function Skills() {
 
         <section className="grid gap-8 lg:grid-cols-[13rem_minmax(0,1fr)] lg:gap-10">
           <h2 className="mb-0 text-left text-4xl font-bold uppercase lg:pt-2">{language === "pt" ? "Banco de dados" : "Database"}</h2>
-          <div className="grid grid-cols-1 justify-items-center gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          <div className="grid grid-cols-2 justify-items-center gap-3 sm:grid-cols-2 sm:gap-6 md:grid-cols-3 lg:grid-cols-4">
 
         {/* SQL */}
         <article className="group relative flex flex-col items-center transition duration-300 hover:-translate-y-1">
@@ -261,8 +261,8 @@ export default function Skills() {
               className="relative block h-auto w-full opacity-80"
             />
             <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
-              <img src="/images/skills/sql-logo-liquid-glass.png" alt="Logo de SQL" className="size-14 object-contain transition-transform duration-300 group-hover:scale-110 sm:size-16" />
-              <p className="text-lg font-semibold tracking-wide text-slate-700">SQL</p>
+              <img src="/images/skills/sql-logo-liquid-glass.png" alt="Logo de SQL" className="size-11 object-contain transition-transform duration-300 group-hover:scale-110 sm:size-16" />
+              <p className="text-sm font-semibold tracking-wide text-slate-700 sm:text-lg">SQL</p>
             </div>
           </div>
         </article>
@@ -277,8 +277,8 @@ export default function Skills() {
               className="relative block h-auto w-full opacity-80"
             />
             <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
-              <img src="/images/skills/firebase-logo-liquid-glass.png" alt="Logo de Firebase" className="size-14 object-contain transition-transform duration-300 group-hover:scale-110 sm:size-16" />
-              <p className="text-lg font-semibold tracking-wide text-slate-700">Firebase</p>
+              <img src="/images/skills/firebase-logo-liquid-glass.png" alt="Logo de Firebase" className="size-11 object-contain transition-transform duration-300 group-hover:scale-110 sm:size-16" />
+              <p className="text-sm font-semibold tracking-wide text-slate-700 sm:text-lg">Firebase</p>
             </div>
           </div>
         </article>
@@ -288,7 +288,7 @@ export default function Skills() {
 
         <section className="grid gap-8 lg:grid-cols-[13rem_minmax(0,1fr)] lg:gap-10">
           <h2 className="mb-0 text-left text-4xl font-bold uppercase lg:pt-2">{language === "pt" ? "Outros" : "Tools"}</h2>
-          <div className="grid grid-cols-1 justify-items-center gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          <div className="grid grid-cols-2 justify-items-center gap-3 sm:grid-cols-2 sm:gap-6 md:grid-cols-3 lg:grid-cols-4">
 
 
         {/* GitHub */}
@@ -301,8 +301,8 @@ export default function Skills() {
               className="relative block h-auto w-full opacity-80"
             />
             <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
-              <img src="/images/skills/github-logo-liquid-glass.png" alt="Logo de GitHub" className="size-14 object-contain transition-transform duration-300 group-hover:scale-110 sm:size-16" />
-              <p className="text-lg font-semibold tracking-wide text-slate-700">GitHub</p>
+              <img src="/images/skills/github-logo-liquid-glass.png" alt="Logo de GitHub" className="size-11 object-contain transition-transform duration-300 group-hover:scale-110 sm:size-16" />
+              <p className="text-sm font-semibold tracking-wide text-slate-700 sm:text-lg">GitHub</p>
             </div>
           </div>
         </article>

@@ -78,7 +78,7 @@ export default function Certificates() {
               aria-label={isPortuguese ? `Certificado de ${certificate.title}` : `${certificate.title} certificate`}
               onClick={() => openCertificate(certificateLink)}
               onKeyDown={(event) => handleCardKeyDown(event, certificateLink)}
-              className="group relative w-full cursor-pointer overflow-hidden rounded-[1.35rem] [perspective:1200px] focus:outline-none focus-visible:ring-2 focus-visible:ring-primary lg:w-[calc(100%+8rem)]"
+              className="group relative mx-auto w-full max-w-[24rem] cursor-pointer overflow-hidden rounded-[1.35rem] [perspective:1200px] focus:outline-none focus-visible:ring-2 focus-visible:ring-primary lg:mx-0 lg:w-[calc(100%+8rem)] lg:max-w-none"
             >
               <div className="relative aspect-[1578/1008] w-full transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] group-focus:[transform:rotateY(180deg)]">
                 <div className="absolute inset-0 overflow-hidden rounded-[1.35rem] [backface-visibility:hidden]">
@@ -102,36 +102,36 @@ export default function Certificates() {
                     aria-hidden="true"
                     className="absolute inset-0 size-full object-fill opacity-80"
                   />
-                  <div className="absolute inset-[10%] flex flex-col justify-between rounded-[1.35rem] border border-primary/40 bg-white/15 p-6 text-slate-900 backdrop-blur-[2px] sm:p-8">
+                  <div className="absolute inset-[6%] flex flex-col justify-between rounded-[1.35rem] border border-primary/40 bg-white/15 p-4 text-slate-900 backdrop-blur-[2px] sm:inset-[10%] sm:p-8">
                     <div>
-                      <p className="mb-4 text-xs font-bold uppercase tracking-[0.25em] text-primary">
+                      <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.2em] text-primary sm:mb-4 sm:text-xs sm:tracking-[0.25em]">
                         {isPortuguese ? "Certificado" : "Certificate"}
                       </p>
-                      <h2 className="font-space max-w-[18rem] text-2xl font-bold tracking-tight sm:text-3xl">
+                      <h2 className="font-space max-w-[18rem] text-xl font-bold tracking-tight sm:text-3xl">
                         {certificate.title}
                       </h2>
-                      <p className="mt-3 text-sm text-slate-500">{certificate.date}</p>
+                      <p className="mt-2 text-xs text-slate-500 sm:mt-3 sm:text-sm">{certificate.date}</p>
                     </div>
 
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-1.5 sm:gap-2">
                       {certificate.technologies.map((technology) => (
                         <span
                           key={technology}
-                          className="rounded-full border border-primary/30 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-primary"
+                          className="rounded-full border border-primary/30 px-2 py-1 text-[10px] font-semibold uppercase tracking-wide text-primary sm:px-3 sm:text-xs"
                         >
                           {technology}
                         </span>
                       ))}
                     </div>
 
-                    <div className="flex items-end justify-between gap-4 text-sm">
+                    <div className="flex items-end justify-between gap-2 text-xs sm:gap-4 sm:text-sm">
                       <span className="text-slate-500">{certificate.issuer}</span>
                       <a
                         href={certificateLink}
                         target="_blank"
                         rel="noreferrer"
                         onClick={(event) => event.stopPropagation()}
-                        className="font-bold uppercase tracking-[0.2em] text-primary transition-colors hover:text-slate-900"
+                        className="shrink-0 text-right font-bold uppercase tracking-[0.12em] text-primary transition-colors hover:text-slate-900 sm:tracking-[0.2em]"
                       >
                         {isPortuguese ? "Ver certificado" : "View certificate"}
                       </a>
