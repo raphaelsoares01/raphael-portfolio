@@ -23,7 +23,7 @@ export default function IntroVideo() {
         setIsVisible(false);
       }}
     >
-      <source src="/videos/intro-portfolio.mp4" type="video/mp4" />
+      <source src="/videos/intro-portfolio2.mp4" type="video/mp4" />
     </video>
   );
 }
