@@ -37,15 +37,17 @@ const verticalAnchors = [0.03, 0.19, 0.3, 0.41, 0.53, 0.64, 0.75, 0.86, 0.98];
 const clamp = (value: number, min: number, max: number) =>
   Math.min(Math.max(value, min), Math.max(min, max));
 
-function createBubbles(width: number, height: number): BubbleState[] {
+const getBubbleScale = (width: number) => (width < 640 ? 0.5 : 1);
+
+function createBubbles(width: number, height: number, scale: number): BubbleState[] {
   return bubbleSizes.map((size, index) => ({
     id: index,
     src: bubbleSources[index % bubbleSources.length],
-    x: clamp(width * horizontalAnchors[index] - size / 2, 0, width - size),
-    y: clamp(height * verticalAnchors[index] - size / 2, 0, height - size),
+    x: clamp(width * horizontalAnchors[index] - (size * scale) / 2, 0, width - size * scale),
+    y: clamp(height * verticalAnchors[index] - (size * scale) / 2, 0, height - size * scale),
     vx: index % 2 === 0 ? 8 : -7,
     vy: index % 3 === 0 ? 5 : -3,
-    size,
+    size: size * scale,
     rotation: index * 11,
     spin: index % 2 === 0 ? 5 : -4,
   }));
@@ -67,6 +69,7 @@ export default function FloatingBubbles() {
     }
 
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let bubbleScale = getBubbleScale(window.innerWidth);
 
     const measureField = () => {
       const width = field.clientWidth;
@@ -76,8 +79,11 @@ export default function FloatingBubbles() {
         return;
       }
 
-      if (!bubblesRef.current.length) {
-        bubblesRef.current = createBubbles(width, height);
+      const nextBubbleScale = getBubbleScale(window.innerWidth);
+
+      if (!bubblesRef.current.length || nextBubbleScale !== bubbleScale) {
+        bubblesRef.current = createBubbles(width, height, nextBubbleScale);
+        bubbleScale = nextBubbleScale;
       } else {
         bubblesRef.current = bubblesRef.current.map((bubble) => ({
           ...bubble,

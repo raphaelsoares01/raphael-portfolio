@@ -61,14 +61,14 @@ export default function Hero() {
       <img
         src="/images/left-arrow.png"
         alt=""
-        className="absolute left-[-12vw] top-1/2 h-auto w-[58vw] max-w-[1050px] -translate-y-1/2 transition-transform duration-500 ease-out group-hover:-translate-x-30 sm:left-[-8vw] sm:w-[80vw] sm:scale-[1.5]"
+        className="absolute left-[-30vw] top-1/2 h-auto w-[106vw] max-w-[1050px] -translate-y-1/2 transition-transform duration-500 ease-out group-hover:-translate-x-30 sm:left-[-8vw] sm:w-[80vw] sm:scale-[1.5]"
       />
 
       {/* > */}
       <img
         src="/images/right-arrow.png"
         alt=""
-        className="absolute right-[-12vw] top-1/2 h-auto w-[58vw] max-w-[1050px] -translate-y-1/2 transition-transform duration-500 ease-out group-hover:translate-x-30 sm:right-[-8vw] sm:w-[80vw] sm:scale-[1.5]"
+        className="absolute right-[-30vw] top-1/2 h-auto w-[106vw] max-w-[1050px] -translate-y-1/2 transition-transform duration-500 ease-out group-hover:translate-x-30 sm:right-[-8vw] sm:w-[80vw] sm:scale-[1.5]"
       />
 
       {/* Keep the English title as the fixed layout reference for the images. */}
