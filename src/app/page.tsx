@@ -6,11 +6,13 @@ import Projects from "@/components/Projects";
 import Certificates from "@/components/Certificates";
 import Contact from "@/components/Contact";
 import FloatingBubbles from "@/components/FloatingBubbles";
+import IntroVideo from "@/components/IntroVideo";
 import { SitePreferencesProvider } from "./SitePreferences";
 
 export default function Home() {
   return (
     <SitePreferencesProvider>
+      <IntroVideo />
       <Navbar />
     
       <main className="relative">
