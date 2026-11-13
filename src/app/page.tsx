@@ -12,7 +12,7 @@ import { SitePreferencesProvider } from "./SitePreferences";
 export default function Home() {
   return (
     <SitePreferencesProvider>
-      <IntroVideo />
+      {/* <IntroVideo /> */}
       <Navbar />
     
       <main className="relative">
