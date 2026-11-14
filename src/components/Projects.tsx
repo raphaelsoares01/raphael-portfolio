@@ -2,6 +2,7 @@
 
 import { motion } from "motion/react";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { useSitePreferences } from "@/app/SitePreferences";
 
 const projects = [
@@ -19,6 +20,7 @@ const projects = [
 
 export default function Projects() {
     const [activeProject, setActiveProject] = useState(0);
+    const router = useRouter();
     const { language } = useSitePreferences();
     const selectedProject = projects[activeProject];
 
@@ -57,6 +59,11 @@ export default function Projects() {
                                         type="button"
                                         className="group w-full cursor-pointer text-left"
                                         onFocus={() => setActiveProject(index)}
+                                        onClick={() => {
+                                            if (project.name === "PillReminder") {
+                                                router.push("/projects/pillreminder");
+                                            }
+                                        }}
                                         aria-label={language === "pt" ? `Selecionar projeto ${project.name}` : `Select project ${project.name}`}
                                     >
                                         <div className="mb-3 flex items-center gap-4">

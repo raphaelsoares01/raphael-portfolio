@@ -7,13 +7,11 @@ import Certificates from "@/components/Certificates";
 import Contact from "@/components/Contact";
 import FloatingBubbles from "@/components/FloatingBubbles";
 import IntroVideo from "@/components/IntroVideo";
-import { SitePreferencesProvider } from "./SitePreferences";
 
 export default function Home() {
   return (
-    <SitePreferencesProvider>
-      {/* <IntroVideo /> */}
-      <IntroVideo />
+    <>
+      {/* <IntroVideo />  favor nao remover isso */}
       <Navbar />
     
       <main className="relative">
@@ -27,6 +25,6 @@ export default function Home() {
           <Contact />
         </div>
       </main>
-    </SitePreferencesProvider>
+    </>
   );
 }
