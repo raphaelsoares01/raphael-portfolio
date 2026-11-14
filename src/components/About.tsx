@@ -9,17 +9,15 @@ export default function About() {
   return (
     <section id="about" className="flex min-h-screen items-center justify-center px-6 py-24 sm:px-10">
       <div className="grid w-full max-w-6xl items-center gap-12 md:grid-cols-[minmax(220px,0.8fr)_1.2fr] md:gap-20">
-        <div className="relative mx-auto aspect-[1085/1452] w-full max-w-[18.5rem] sm:max-w-[22.5rem]">
+        <div className="relative -mx-6 w-[calc(100%+3rem)] sm:-mx-10 sm:w-[calc(100%+5rem)] md:left-[min(calc((72rem_-_100vw)/2),_-2.5rem)] md:mx-0 md:w-[min(40vw,30rem)] lg:w-[min(48vw,36rem)] 2xl:w-[min(72vw,52rem)]">
           <img
-            src="/images/profile.png"
-            alt="Portrait of Raphael Soares Casado"
-            className="absolute inset-x-[7%] bottom-[5%] top-[7%] z-10 h-[88%] w-[86%] rounded-[2rem] object-cover"
-          />
-          <img
-            src="/images/large-liquid-container.png"
-            alt=""
-            aria-hidden="true"
-            className="absolute inset-0 z-0 h-full w-full object-fill opacity-80"
+            src={isPortuguese ? "/images/aboutme-picture-ptbr.png" : "/images/aboutme-picture.png"}
+            alt={
+              isPortuguese
+                ? "Retrato de Raphael Soares Casado com informações sobre sua localização e atuação como desenvolvedor full-stack"
+                : "Portrait of Raphael Soares Casado with information about his location and work as a full-stack developer"
+            }
+            className="block h-auto w-full"
           />
         </div>
 
