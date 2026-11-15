@@ -1,20 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { motion, useScroll, useTransform } from "motion/react";
-import { useRef } from "react";
 import { useSitePreferences } from "@/app/SitePreferences";
 
 export default function Pillreminder() {
     const { language } = useSitePreferences();
     const isPortuguese = language === "pt";
-    const imageSectionRef = useRef<HTMLElement>(null);
-    const { scrollYProgress } = useScroll({
-        target: imageSectionRef,
-        offset: ["start 90%", "start 25%"],
-    });
-    const detailsOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
-    const imageY = useTransform(scrollYProgress, [0, 1], [140, -80]);
 
     return (
         <main className="min-h-screen overflow-x-clip px-6 py-8 text-slate-950 sm:px-10 sm:py-10">
@@ -29,10 +20,7 @@ export default function Pillreminder() {
                     Back
                 </Link>
 
-                <motion.section
-                    style={{ opacity: detailsOpacity }}
-                    className="sticky top-0 z-0 mx-auto flex min-h-[calc(100vh-7rem)] max-w-[560px] flex-col justify-center py-20"
-                >
+                <section className="mx-auto flex max-w-[760px] flex-col py-20">
                     <div className="flex flex-wrap items-center gap-4">
                         <h1 className="font-space text-5xl font-bold tracking-tight sm:text-7xl">
                             PillReminder
@@ -62,7 +50,7 @@ export default function Pillreminder() {
                             <p className="text-base leading-7 text-slate-600">
                                 {isPortuguese
                                     ? "O projeto acadêmico PillReminder, foi desenvolvido em prol da participação em um congresso de inciação científica, tendo como principal regra a implementação da técnologia na área da saúde e bem estar"
-                                    : "PillReminder is a thoughtful medication management experience designed to make daily routines simpler, clearer, and more reliable."}
+                                    : "PillReminder is an academic project created for participation in a scientific initiation conference. Its main goal was to apply technology to healthcare and well-being."}
                             </p>
                         </div>
                         <div>
@@ -72,18 +60,78 @@ export default function Pillreminder() {
                             <p className="text-base leading-7 text-slate-600">
                                 {isPortuguese
                                     ? "A proposta executada foi a criação de um dispositivo móvel integrado com um aplicativo, onde ambos se comunicam por meio da IoT (Internet das Coisas) e trabalham em conjunto para auxiliar o usuário a manter sua rotina de medicação em dia"
-                                    : "PillReminder is a thoughtful medication management experience designed to make daily routines simpler, clearer, and more reliable."}
+                                    : "The project combines a physical device with a mobile application. They communicate through IoT (Internet of Things) and work together to help users stay on top of their medication schedule."}
                             </p>
                         </div>
                         <div>
                             <h2 className="mb-3 font-space text-sm font-bold uppercase tracking-[0.2em] text-primary">
                                 {isPortuguese ? "Como Funciona" : "How It Works"}
                             </h2>
-                            <p className="text-base leading-7 text-slate-600">
-                                {isPortuguese
-                                    ? "Com o dispositivo em mãos, ao abrir o aplicativo, você terá acesso a tela de login e criação de conta, seguindo para a próxima etapa onde é definido alguns outros detalhes como peso, altura, idade e sexo, isso é importante para a personalização da experiência do usuário. Em seguida, será redirecionado para a tela principal do aplicativo, abaixo é possível ver a barra de navegação, que contém as principais funcionalidades, como a tela de \"Perfil\", tela de \"Lembrete\"s, e principalmente a tela de \"Conexão com o Dispositivo\" (quebra de linha + 3 imagens: ) Ao entrar na tela de \"Conexão com o Dispositivo\" você consegue conectar seu dispositivo com o aplicativo por meio de QR Code ou o código, feito a conexão, o dispositivo estará pronto para ser utilizado, e o usuário estará apto a definir os horários de medicação seguindo para a tela de \"Lembretes\". (quebra de linha 1 imagem), Note que é possível definir 3 compartimentos para medicação (A, B e C) que correspondem com os compartimentos do dispositivo (quebra de linha). Quando disparado o alarme, o usuário recebe uma notificação no celular, o dispositivo emite um som e acende a luz do compartimento correspondente, indicando qual a medicação a ser tomada (quebra de linha). No visor é exibido uma mensagem de alerta, e quando não está em alerta o mesmo exibe a hora atual e quanto tempo falta para o próximo alarme (quebra de linha + imagem: pillbox_alpha_image). Para confirmar que a medicação foi tomada, deve-se apertar o botão do compartimento correspondente ou confirmar no aplicativo, em caso do usuário não confirmar, o aplicativo registra que não foi tomada"
-                                    : "PillReminder is a thoughtful medication management experience designed to make daily routines simpler, clearer, and more reliable."}
-                            </p>
+                            {isPortuguese ? (
+                                <p className="text-base leading-7 text-slate-600">
+                                    Com o dispositivo em mãos, ao abrir o aplicativo, você terá acesso a tela de login e criação de conta, seguindo para a próxima etapa onde é definido alguns outros detalhes como peso, altura, idade e sexo, isso é importante para a personalização da experiência do usuário. Em seguida, será redirecionado para a tela principal do aplicativo (&quot;Home&quot;). Abaixo é possível ver a barra de navegação, que contém as principais funcionalidades, como a tela de &quot;Perfil&quot;, tela de &quot;Lembretes&quot;, e principalmente a tela de &quot;Conexão com o Dispositivo&quot;. Ao entrar na tela de &quot;Conexão com o Dispositivo&quot; você consegue conectar seu dispositivo com o aplicativo por meio de QR Code ou o código, feito a conexão, o dispositivo estará pronto para ser utilizado, e o usuário estará apto a definir os horários de medicação seguindo para a tela de &quot;Lembretes&quot;. Note que é possível definir 3 compartimentos para medicação (A, B e C) que correspondem com os compartimentos do dispositivo. Quando disparado o alarme, o usuário recebe uma notificação no celular, o dispositivo emite um som e acende a luz do compartimento correspondente, indicando qual a medicação a ser tomada. No visor é exibido uma mensagem de alerta, e quando não está em alerta o mesmo exibe a hora atual e quanto tempo falta para o próximo alarme. Para confirmar que a medicação foi tomada, deve-se apertar o botão do compartimento correspondente ou confirmar no aplicativo, em caso do usuário não confirmar, o aplicativo registra que não foi tomada.
+                                </p>
+                            ) : (
+                                <div className="space-y-8 text-base leading-7 text-slate-600">
+                                    <p>
+                                        With the device in hand, opening the app takes you to the login and account creation screen. Next, you enter details such as weight, height, age, and sex to personalize the experience. You are then taken to the app&apos;s home screen.
+                                    </p>
+                                    <img
+                                        src="/images/mockups/home-page.png"
+                                        alt="PillReminder home screen"
+                                        className="block h-[420px] w-[207px] object-contain"
+                                    />
+                                    <p>
+                                        The navigation bar gives access to the main features: Profile, Reminders, and Connect Device.
+                                    </p>
+                                    <div className="grid justify-items-start gap-6 sm:grid-cols-3">
+                                        <img
+                                            src="/images/mockups/profile-page.png"
+                                            alt="PillReminder profile screen"
+                                            className="block h-[420px] w-[207px] object-contain"
+                                        />
+                                        <img
+                                            src="/images/mockups/timer-page.png"
+                                            alt="PillReminder reminders screen"
+                                            className="block h-[420px] w-[207px] object-contain"
+                                        />
+                                        <img
+                                            src="/images/mockups/connect-device-page.png"
+                                            alt="PillReminder connect device screen"
+                                            className="block h-[420px] w-[207px] object-contain"
+                                        />
+                                    </div>
+                                    <p>
+                                        From Connect Device, you can pair the device with the app using a QR code or a code. Once connected, the device is ready to use and you can set medication times on the Reminders screen.
+                                    </p>
+                                    <div className="grid justify-items-start gap-6 sm:grid-cols-2">
+                                        <img
+                                            src="/images/mockups/confirm-connection-page.png"
+                                            alt="PillReminder connection confirmation screen"
+                                            className="block h-[420px] w-[207px] object-contain"
+                                        />
+                                        <img
+                                            src="/images/mockups/already-connected-page.png"
+                                            alt="PillReminder connected device screen"
+                                            className="block h-[420px] w-[207px] object-contain"
+                                        />
+                                    </div>
+                                    <p>
+                                        You can configure three medication compartments, A, B, and C, matching the compartments on the device. When an alarm goes off, the user receives a phone notification, the device plays a sound, and the corresponding compartment light turns on to indicate which medication should be taken.
+                                    </p>
+                                    <p>
+                                        The display shows an alert message during an alarm. At other times, it shows the current time and how long remains until the next alarm.
+                                    </p>
+                                    <img
+                                        src="/images/pillbox_alpha_image.png"
+                                        alt="PillReminder physical device"
+                                        className="block max-w-full"
+                                    />
+                                    <p>
+                                        To confirm that the medication was taken, press the corresponding compartment button or confirm it in the app. If the user does not confirm, the app records that the medication was not taken.
+                                    </p>
+                                </div>
+                            )}
                         </div>
                         <div>
                             <h2 className="mb-3 font-space text-sm font-bold uppercase tracking-[0.2em] text-primary">
@@ -92,7 +140,7 @@ export default function Pillreminder() {
                             <p className="text-base leading-7 text-slate-600">
                                 {isPortuguese
                                     ? "Flutter, Dart, Firebase, Arduino IDE, Fusion, Kicad, Sistemas embarcados"
-                                    : "Flutter, Dart, Firebase, and thoughtful product design."}
+                                    : "Flutter, Dart, Firebase, Arduino IDE, Fusion 360, KiCad, and embedded systems."}
                             </p>
                         </div>
                         <div>
@@ -102,16 +150,16 @@ export default function Pillreminder() {
                             <p className="text-base leading-7 text-slate-600">2026</p>
                         </div>
                     </div>
-                </motion.section>
+                </section>
 
-                <section ref={imageSectionRef} className="relative z-10 min-h-[140vh]">
-                    <motion.div style={{ y: imageY }} className="mx-auto w-full max-w-[660px]">
+                <section className="relative z-10">
+                    <div className="w-full max-w-[660px]">
                         <img
                             src="/images/pillreminder-project-image.png"
                             alt="PillReminder project preview"
                             className="block h-auto w-full object-cover"
                         />
-                    </motion.div>
+                    </div>
 
                     <p className="mt-32 text-center font-space text-3xl font-semibold tracking-tight text-slate-900 sm:text-5xl">
                         raphaelsoarescasado@gmail.com
