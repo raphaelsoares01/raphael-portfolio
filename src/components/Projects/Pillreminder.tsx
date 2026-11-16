@@ -1,11 +1,70 @@
 "use client";
 
 import Link from "next/link";
+import { AnimatePresence, motion } from "motion/react";
+import { useEffect, useState } from "react";
 import { useSitePreferences } from "@/app/SitePreferences";
+
+type GalleryImage = {
+    src: string;
+    alt: string;
+};
+
+const mockupImages = [
+    {
+        src: "/images/mockups/home-page.png",
+        alt: "PillReminder home screen",
+    },
+    {
+        src: "/images/mockups/profile-page.png",
+        alt: "PillReminder profile screen",
+    },
+    {
+        src: "/images/mockups/timer-page.png",
+        alt: "PillReminder reminders screen",
+    },
+    {
+        src: "/images/mockups/connect-device-page.png",
+        alt: "PillReminder connect device screen",
+    },
+    {
+        src: "/images/mockups/confirm-connection-page.png",
+        alt: "PillReminder connection confirmation screen",
+    },
+    {
+        src: "/images/mockups/already-connected-page.png",
+        alt: "PillReminder connected device screen",
+    },
+];
 
 export default function Pillreminder() {
     const { language } = useSitePreferences();
     const isPortuguese = language === "pt";
+    const [activeMockup, setActiveMockup] = useState(0);
+    const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null);
+
+    useEffect(() => {
+        if (!selectedImage) {
+            return;
+        }
+
+        const handleKeyDown = (event: KeyboardEvent) => {
+            if (event.key === "Escape") {
+                setSelectedImage(null);
+            }
+        };
+
+        window.addEventListener("keydown", handleKeyDown);
+        return () => window.removeEventListener("keydown", handleKeyDown);
+    }, [selectedImage]);
+
+    const showPreviousMockup = () => {
+        setActiveMockup((current) => (current - 1 + mockupImages.length) % mockupImages.length);
+    };
+
+    const showNextMockup = () => {
+        setActiveMockup((current) => (current + 1) % mockupImages.length);
+    };
 
     return (
         <main className="min-h-screen overflow-x-clip px-6 py-8 text-slate-950 sm:px-10 sm:py-10">
@@ -21,7 +80,7 @@ export default function Pillreminder() {
                 </Link>
 
                 <section className="mx-auto flex max-w-[760px] flex-col py-20">
-                    <div className="flex flex-wrap items-center gap-4">
+                    <div className="flex flex-wrap items-center justify-start gap-8">
                         <h1 className="font-space text-5xl font-bold tracking-tight sm:text-7xl">
                             PillReminder
                         </h1>
@@ -69,73 +128,166 @@ export default function Pillreminder() {
                             </h2>
                             {isPortuguese ? (
                                 <p className="text-base leading-7 text-slate-600">
-                                    Com o dispositivo em mãos, ao abrir o aplicativo, você terá acesso a tela de login e criação de conta, seguindo para a próxima etapa onde é definido alguns outros detalhes como peso, altura, idade e sexo, isso é importante para a personalização da experiência do usuário. Em seguida, será redirecionado para a tela principal do aplicativo (&quot;Home&quot;). Abaixo é possível ver a barra de navegação, que contém as principais funcionalidades, como a tela de &quot;Perfil&quot;, tela de &quot;Lembretes&quot;, e principalmente a tela de &quot;Conexão com o Dispositivo&quot;. Ao entrar na tela de &quot;Conexão com o Dispositivo&quot; você consegue conectar seu dispositivo com o aplicativo por meio de QR Code ou o código, feito a conexão, o dispositivo estará pronto para ser utilizado, e o usuário estará apto a definir os horários de medicação seguindo para a tela de &quot;Lembretes&quot;. Note que é possível definir 3 compartimentos para medicação (A, B e C) que correspondem com os compartimentos do dispositivo. Quando disparado o alarme, o usuário recebe uma notificação no celular, o dispositivo emite um som e acende a luz do compartimento correspondente, indicando qual a medicação a ser tomada. No visor é exibido uma mensagem de alerta, e quando não está em alerta o mesmo exibe a hora atual e quanto tempo falta para o próximo alarme. Para confirmar que a medicação foi tomada, deve-se apertar o botão do compartimento correspondente ou confirmar no aplicativo, em caso do usuário não confirmar, o aplicativo registra que não foi tomada.
+                                    Com o dispositivo em mãos, ao abrir o aplicativo, você terá acesso a tela de login e criação de conta, seguindo para a próxima etapa onde é definido alguns outros detalhes como peso, altura, idade e sexo, isso é importante para a personalização da experiência do usuário. Em seguida, será redirecionado para a tela principal do aplicativo (&quot;Home&quot;).
+                                    <br />
+                                    <br />
+                                    Abaixo é possível ver a barra de navegação, que contém as principais funcionalidades, como a tela de &quot;Perfil&quot;, tela de &quot;Lembretes&quot;, e principalmente a tela de &quot;Conexão com o Dispositivo&quot;.
+                                    <br />
+                                    <br />
+                                    Ao entrar na tela de &quot;Conexão com o Dispositivo&quot; você consegue conectar seu dispositivo com o aplicativo por meio de QR Code ou o código, feito a conexão, o dispositivo estará pronto para ser utilizado, e o usuário estará apto a definir os horários de medicação seguindo para a tela de &quot;Lembretes&quot;. Note que é possível definir 3 compartimentos para medicação (A, B e C) que correspondem com os compartimentos do dispositivo. Quando disparado o alarme, o usuário recebe uma notificação no celular, o dispositivo emite um som e acende a luz do compartimento correspondente, indicando qual a medicação a ser tomada.
+                                    <br />
+                                    <br />
+                                    No visor é exibido uma mensagem de alerta, e quando não está em alerta o mesmo exibe a hora atual e quanto tempo falta para o próximo alarme.
+                                    <br />
+                                    <br />
+                                    Para confirmar que a medicação foi tomada, deve-se apertar o botão do compartimento correspondente ou confirmar no aplicativo, em caso do usuário não confirmar, o aplicativo registra que não foi tomada.
                                 </p>
                             ) : (
-                                <div className="space-y-8 text-base leading-7 text-slate-600">
-                                    <p>
-                                        With the device in hand, opening the app takes you to the login and account creation screen. Next, you enter details such as weight, height, age, and sex to personalize the experience. You are then taken to the app&apos;s home screen.
-                                    </p>
-                                    <img
-                                        src="/images/mockups/home-page.png"
-                                        alt="PillReminder home screen"
-                                        className="block h-[420px] w-[207px] object-contain"
-                                    />
-                                    <p>
-                                        The navigation bar gives access to the main features: Profile, Reminders, and Connect Device.
-                                    </p>
-                                    <div className="grid justify-items-start gap-6 sm:grid-cols-3">
-                                        <img
-                                            src="/images/mockups/profile-page.png"
-                                            alt="PillReminder profile screen"
-                                            className="block h-[420px] w-[207px] object-contain"
-                                        />
-                                        <img
-                                            src="/images/mockups/timer-page.png"
-                                            alt="PillReminder reminders screen"
-                                            className="block h-[420px] w-[207px] object-contain"
-                                        />
-                                        <img
-                                            src="/images/mockups/connect-device-page.png"
-                                            alt="PillReminder connect device screen"
-                                            className="block h-[420px] w-[207px] object-contain"
-                                        />
-                                    </div>
-                                    <p>
-                                        From Connect Device, you can pair the device with the app using a QR code or a code. Once connected, the device is ready to use and you can set medication times on the Reminders screen.
-                                    </p>
-                                    <div className="grid justify-items-start gap-6 sm:grid-cols-2">
-                                        <img
-                                            src="/images/mockups/confirm-connection-page.png"
-                                            alt="PillReminder connection confirmation screen"
-                                            className="block h-[420px] w-[207px] object-contain"
-                                        />
-                                        <img
-                                            src="/images/mockups/already-connected-page.png"
-                                            alt="PillReminder connected device screen"
-                                            className="block h-[420px] w-[207px] object-contain"
-                                        />
-                                    </div>
-                                    <p>
-                                        You can configure three medication compartments, A, B, and C, matching the compartments on the device. When an alarm goes off, the user receives a phone notification, the device plays a sound, and the corresponding compartment light turns on to indicate which medication should be taken.
-                                    </p>
-                                    <p>
-                                        The display shows an alert message during an alarm. At other times, it shows the current time and how long remains until the next alarm.
-                                    </p>
-                                    <img
-                                        src="/images/pillbox_alpha_image.png"
-                                        alt="PillReminder physical device"
-                                        className="block max-w-full"
-                                    />
-                                    <p>
-                                        To confirm that the medication was taken, press the corresponding compartment button or confirm it in the app. If the user does not confirm, the app records that the medication was not taken.
-                                    </p>
-                                </div>
+                                <p className="text-base leading-7 text-slate-600">
+                                    With the device in hand, opening the app takes you to the login and account creation screen. Next, you enter details such as weight, height, age, and sex to personalize the experience. You are then taken to the app&apos;s home screen.
+                                    <br />
+                                    <br />
+                                    The navigation bar gives access to the main features: Profile, Reminders, and Connect Device.
+                                    <br />
+                                    <br />
+                                    From Connect Device, you can pair the device with the app using a QR code or a code. Once connected, the device is ready to use and you can set medication times on the Reminders screen.
+                                    <br />
+                                    <br />
+                                    You can configure three medication compartments, A, B, and C, matching the compartments on the device. When an alarm goes off, the user receives a phone notification, the device plays a sound, and the corresponding compartment light turns on to indicate which medication should be taken.
+                                    <br />
+                                    <br />
+                                    The display shows an alert message during an alarm. At other times, it shows the current time and how long remains until the next alarm.
+                                    <br />
+                                    <br />
+                                    To confirm that the medication was taken, press the corresponding compartment button or confirm it in the app. If the user does not confirm, the app records that the medication was not taken.
+                                </p>
                             )}
+                            <div className="mt-10 flex flex-col items-center gap-5">
+                                <div className="flex w-full items-center justify-between gap-4">
+                                    <button
+                                        type="button"
+                                        onClick={showPreviousMockup}
+                                        className="rounded-full border border-slate-300 px-4 py-2 text-2xl leading-none text-slate-600 transition-colors hover:border-primary hover:text-primary"
+                                        aria-label={isPortuguese ? "Imagem anterior" : "Previous image"}
+                                    >
+                                        ←
+                                    </button>
+                                    <div className="flex h-[520px] w-[256px] items-center justify-center sm:h-[560px] sm:w-[276px]">
+                                        <button
+                                            type="button"
+                                            onClick={() => setSelectedImage(mockupImages[activeMockup])}
+                                            className="size-full cursor-zoom-in"
+                                            aria-label={isPortuguese ? "Ampliar imagem" : "Enlarge image"}
+                                        >
+                                            <AnimatePresence mode="wait">
+                                                <motion.img
+                                                    key={mockupImages[activeMockup].src}
+                                                    src={mockupImages[activeMockup].src}
+                                                    alt={mockupImages[activeMockup].alt}
+                                                    className="block size-full object-contain"
+                                                    initial={{ opacity: 0, x: 16 }}
+                                                    animate={{ opacity: 1, x: 0 }}
+                                                    exit={{ opacity: 0, x: -16 }}
+                                                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                                                />
+                                            </AnimatePresence>
+                                        </button>
+                                    </div>
+                                    <button
+                                        type="button"
+                                        onClick={showNextMockup}
+                                        className="rounded-full border border-slate-300 px-4 py-2 text-2xl leading-none text-slate-600 transition-colors hover:border-primary hover:text-primary"
+                                        aria-label={isPortuguese ? "Próxima imagem" : "Next image"}
+                                    >
+                                        →
+                                    </button>
+                                </div>
+                                <div className="flex items-center gap-2" aria-label={isPortuguese ? "Imagem atual" : "Current image"}>
+                                    {mockupImages.map((mockup, index) => (
+                                        <button
+                                            key={mockup.src}
+                                            type="button"
+                                            onClick={() => setActiveMockup(index)}
+                                            className={`size-2.5 rounded-full transition-colors ${
+                                                activeMockup === index ? "bg-primary" : "bg-slate-300"
+                                            }`}
+                                            aria-label={`${isPortuguese ? "Mostrar imagem" : "Show image"} ${index + 1}`}
+                                            aria-current={activeMockup === index ? "true" : undefined}
+                                        />
+                                    ))}
+                                </div>
+                            </div>
+                            <button
+                                type="button"
+                                onClick={() =>
+                                    setSelectedImage({
+                                        src: "/images/pillbox_alpha_image.png",
+                                        alt: "PillReminder physical device",
+                                    })
+                                }
+                                className="mx-auto mt-10 block max-w-full cursor-zoom-in"
+                                aria-label={isPortuguese ? "Ampliar imagem da caixa" : "Enlarge physical device image"}
+                            >
+                                <img
+                                    src="/images/pillbox_alpha_image.png"
+                                    alt="PillReminder physical device"
+                                    className="max-w-full"
+                                />
+                            </button>
                         </div>
                         <div>
                             <h2 className="mb-3 font-space text-sm font-bold uppercase tracking-[0.2em] text-primary">
-                                {isPortuguese ? "Tecnologias & Técnica" : "Tech & Technique"}
+                                {isPortuguese ? "Resultados" : "Results"}
+                            </h2>
+                            {isPortuguese ? (
+                                <p className="text-base leading-7 text-slate-600">
+                                    Após finalização projeto, o dispositivo e o aplicativo foram testados em conjunto, o resultado foi satisfatório atingindo todas as expectativas, sendo apresentado no Congresso Brasileiro de Iniciação Científica (COBRIC), onde foi possível demonstrar o funcionamento do dispositivo e do aplicativo, e como eles se comunicam entre si.
+                                </p>
+                            ) : (
+                                <p className="text-base leading-7 text-slate-600">
+                                    After the project was completed, the device and the application were tested together, achieving satisfactory results and meeting all expectations. The project was presented at the Brazilian Congress of Scientific Initiation (COBRIC), where we demonstrated how the device and the application work and communicate with each other.
+                                </p>
+                            )}
+                            <div className="mt-10 grid justify-items-center gap-6 sm:grid-cols-2">
+                                <button
+                                    type="button"
+                                    onClick={() =>
+                                        setSelectedImage({
+                                            src: "/images/cobric-project-picture.jpeg",
+                                            alt: "PillReminder project at COBRIC",
+                                        })
+                                    }
+                                    className="cursor-zoom-in"
+                                    aria-label={isPortuguese ? "Ampliar imagem do projeto no COBRIC" : "Enlarge COBRIC project image"}
+                                >
+                                    <img
+                                        src="/images/cobric-project-picture.jpeg"
+                                        alt="PillReminder project at COBRIC"
+                                        className="w-full max-w-[450px]"
+                                    />
+                                </button>
+                                <button
+                                    type="button"
+                                    onClick={() =>
+                                        setSelectedImage({
+                                            src: "/images/cobric-team-picture.jpeg",
+                                            alt: "PillReminder team at COBRIC",
+                                        })
+                                    }
+                                    className="cursor-zoom-in"
+                                    aria-label={isPortuguese ? "Ampliar imagem da equipe no COBRIC" : "Enlarge COBRIC team image"}
+                                >
+                                    <img
+                                        src="/images/cobric-team-picture.jpeg"
+                                        alt="PillReminder team at COBRIC"
+                                        className="w-full max-w-[450px]"
+                                    />
+                                </button>
+                            </div>
+                        </div>
+                        <div>
+                            <h2 className="mb-3 font-space text-sm font-bold uppercase tracking-[0.2em] text-primary">
+                                {isPortuguese ? "'Tecnologias & Técnica" : "Tech & Technique"}
                             </h2>
                             <p className="text-base leading-7 text-slate-600">
                                 {isPortuguese
@@ -151,20 +303,43 @@ export default function Pillreminder() {
                         </div>
                     </div>
                 </section>
-
-                <section className="relative z-10">
-                    <div className="w-full max-w-[660px]">
-                        <img
-                            src="/images/pillreminder-project-image.png"
-                            alt="PillReminder project preview"
-                            className="block h-auto w-full object-cover"
-                        />
-                    </div>
-
-                    <p className="mt-32 text-center font-space text-3xl font-semibold tracking-tight text-slate-900 sm:text-5xl">
-                        raphaelsoarescasado@gmail.com
-                    </p>
-                </section>
+                <AnimatePresence>
+                    {selectedImage && (
+                        <motion.div
+                            className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/75 p-6 backdrop-blur-md"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            onClick={() => setSelectedImage(null)}
+                            role="dialog"
+                            aria-modal="true"
+                            aria-label={selectedImage.alt}
+                        >
+                            <motion.div
+                                className="relative flex max-h-[92vh] max-w-[92vw] items-center justify-center"
+                                initial={{ scale: 0.94, opacity: 0 }}
+                                animate={{ scale: 1, opacity: 1 }}
+                                exit={{ scale: 0.94, opacity: 0 }}
+                                transition={{ duration: 0.2, ease: "easeOut" }}
+                                onClick={(event) => event.stopPropagation()}
+                            >
+                                <img
+                                    src={selectedImage.src}
+                                    alt={selectedImage.alt}
+                                    className="max-h-[88vh] max-w-[88vw] object-contain"
+                                />
+                                <button
+                                    type="button"
+                                    onClick={() => setSelectedImage(null)}
+                                    className="absolute -right-3 -top-3 flex size-10 items-center justify-center rounded-full bg-white text-2xl leading-none text-slate-700 shadow-lg transition-colors hover:bg-primary hover:text-white"
+                                    aria-label={isPortuguese ? "Fechar imagem ampliada" : "Close enlarged image"}
+                                >
+                                    ×
+                                </button>
+                            </motion.div>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
             </div>
         </main>
     );

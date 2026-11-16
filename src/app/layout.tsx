@@ -22,7 +22,7 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   title: "Raphael Soares Casado | Developer",
   description:
-    "Portfólio de Raphael Soares Casado, estudante de Engenharia da Computação e desenvolvedor.",
+    "Portfólio de Raphael Soares Casado",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

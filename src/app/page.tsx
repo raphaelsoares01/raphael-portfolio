@@ -12,6 +12,7 @@ export default function Home() {
   return (
     <>
       {/* <IntroVideo />  favor nao remover isso */}
+      <IntroVideo />
       <Navbar />
     
       <main className="relative">

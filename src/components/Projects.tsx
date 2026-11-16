@@ -15,6 +15,7 @@ const projects = [
         name: "PillReminder Website",
         image: "/images/pillreminder-website-project-image.png",
         technologies: ["React", "TypeScript", "Tailwind CSS", "Node.js", "Next.js"],
+        url: "https://pillreminder-six.vercel.app/",
     },
 ];
 
@@ -62,6 +63,8 @@ export default function Projects() {
                                         onClick={() => {
                                             if (project.name === "PillReminder") {
                                                 router.push("/projects/pillreminder");
+                                            } else if (project.url) {
+                                                window.open(project.url, "_blank", "noopener,noreferrer");
                                             }
                                         }}
                                         aria-label={language === "pt" ? `Selecionar projeto ${project.name}` : `Select project ${project.name}`}
