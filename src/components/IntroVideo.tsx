@@ -1,9 +1,24 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+const INTRO_SESSION_KEY = "portfolio-intro-seen-v2";
 
 export default function IntroVideo() {
-  const [isVisible, setIsVisible] = useState(true);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    if (sessionStorage.getItem(INTRO_SESSION_KEY)) {
+      return;
+    }
+
+    const showIntro = window.setTimeout(() => {
+      sessionStorage.setItem(INTRO_SESSION_KEY, "true");
+      setIsVisible(true);
+    }, 0);
+
+    return () => window.clearTimeout(showIntro);
+  }, []);
 
   if (!isVisible) {
     return null;
