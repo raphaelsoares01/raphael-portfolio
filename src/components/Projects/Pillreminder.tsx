@@ -35,6 +35,18 @@ const mockupImages = [
         src: "/images/mockups/already-connected-page.png",
         alt: "PillReminder connected device screen",
     },
+    {
+        src: "/images/mockups/sign-in-page.png",
+        alt: "PillReminder sign-in screen",
+    },
+    {
+        src: "/images/mockups/setup-page.png",
+        alt: "PillReminder setup screen",
+    },
+    {
+        src: "/images/mockups/setup-page2.png",
+        alt: "PillReminder second setup screen",
+    },
 ];
 
 export default function Pillreminder() {
