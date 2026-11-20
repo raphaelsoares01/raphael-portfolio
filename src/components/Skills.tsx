@@ -141,6 +141,22 @@ export default function Skills() {
           </div>
         </article>
 
+        {/* Figma */}
+        <article className="group relative flex flex-col items-center transition duration-300 hover:-translate-y-1">
+          <div className="relative w-full max-w-[18rem] overflow-hidden rounded-[1.35rem]">
+            <img
+              src="/images/liquid-container.png"
+              alt=""
+              aria-hidden="true"
+              className="relative block h-auto w-full opacity-80"
+            />
+            <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
+              <img src="/images/skills/figma-logo-liquid-glass.png" alt="Logo de Figma" className="size-11 object-contain transition-transform duration-300 group-hover:scale-110 sm:size-16" />
+              <p className="text-sm font-semibold tracking-wide text-slate-700 sm:text-lg">Figma</p>
+            </div>
+          </div>
+        </article>
+
           </div>
         </section>
 
@@ -251,6 +267,22 @@ export default function Skills() {
           <h2 className="mb-0 text-left text-4xl font-bold uppercase lg:pt-2">{language === "pt" ? "Banco de dados" : "Database"}</h2>
           <div className="grid grid-cols-2 justify-items-center gap-3 sm:grid-cols-2 sm:gap-6 md:grid-cols-3 lg:grid-cols-4">
 
+        {/* PostgreSQL */}
+        <article className="group relative flex flex-col items-center transition duration-300 hover:-translate-y-1">
+          <div className="relative w-full max-w-[18rem] overflow-hidden rounded-[1.35rem]">
+            <img
+              src="/images/liquid-container.png"
+              alt=""
+              aria-hidden="true"
+              className="relative block h-auto w-full opacity-80"
+            />
+            <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
+              <img src="/images/skills/postgresql-logo-liquid-glass.png" alt="Logo de PostgreSQL" className="size-11 object-contain transition-transform duration-300 group-hover:scale-110 sm:size-16" />
+              <p className="text-sm font-semibold tracking-wide text-slate-700 sm:text-lg">PostgreSQL</p>
+            </div>
+          </div>
+        </article>
+
         {/* SQL */}
         <article className="group relative flex flex-col items-center transition duration-300 hover:-translate-y-1">
           <div className="relative w-full max-w-[18rem] overflow-hidden rounded-[1.35rem]">
@@ -303,6 +335,54 @@ export default function Skills() {
             <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
               <img src="/images/skills/github-logo-liquid-glass.png" alt="Logo de GitHub" className="size-11 object-contain transition-transform duration-300 group-hover:scale-110 sm:size-16" />
               <p className="text-sm font-semibold tracking-wide text-slate-700 sm:text-lg">GitHub</p>
+            </div>
+          </div>
+        </article>
+
+        {/* Git */}
+        <article className="group relative flex flex-col items-center transition duration-300 hover:-translate-y-1">
+          <div className="relative w-full max-w-[18rem] overflow-hidden rounded-[1.35rem]">
+            <img
+              src="/images/liquid-container.png"
+              alt=""
+              aria-hidden="true"
+              className="relative block h-auto w-full opacity-80"
+            />
+            <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
+              <img src="/images/skills/git-logo-liquid-glass.png" alt="Logo de Git" className="size-11 object-contain transition-transform duration-300 group-hover:scale-110 sm:size-16" />
+              <p className="text-sm font-semibold tracking-wide text-slate-700 sm:text-lg">Git</p>
+            </div>
+          </div>
+        </article>
+
+        {/* Power BI */}
+        <article className="group relative flex flex-col items-center transition duration-300 hover:-translate-y-1">
+          <div className="relative w-full max-w-[18rem] overflow-hidden rounded-[1.35rem]">
+            <img
+              src="/images/liquid-container.png"
+              alt=""
+              aria-hidden="true"
+              className="relative block h-auto w-full opacity-80"
+            />
+            <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
+              <img src="/images/skills/powerbi-logo-liquid-glass.png" alt="Logo de Power BI" className="size-11 object-contain transition-transform duration-300 group-hover:scale-110 sm:size-16" />
+              <p className="text-sm font-semibold tracking-wide text-slate-700 sm:text-lg">Power BI</p>
+            </div>
+          </div>
+        </article>
+
+        {/* Excel */}
+        <article className="group relative flex flex-col items-center transition duration-300 hover:-translate-y-1">
+          <div className="relative w-full max-w-[18rem] overflow-hidden rounded-[1.35rem]">
+            <img
+              src="/images/liquid-container.png"
+              alt=""
+              aria-hidden="true"
+              className="relative block h-auto w-full opacity-80"
+            />
+            <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
+              <img src="/images/skills/excel-logo-liquid-glass.png" alt="Logo de Excel" className="size-11 object-contain transition-transform duration-300 group-hover:scale-110 sm:size-16" />
+              <p className="text-sm font-semibold tracking-wide text-slate-700 sm:text-lg">Excel</p>
             </div>
           </div>
         </article>
